@@ -88,6 +88,7 @@ class _recordState extends State<record> {
                   children: [
                     GestureDetector(
                       onTap: () {
+                        _stopWatchTimer.onExecute.add(StopWatchExecute.start);
                       },
                       child: Icon(
                            Icons.play_circle,
@@ -99,7 +100,7 @@ class _recordState extends State<record> {
                     SizedBox(width: 100,),
                     GestureDetector(
                       onTap: (){
-
+                        _stopWatchTimer.onExecute.add(StopWatchExecute.stop);
                     },
                       child: Icon(
                           Icons.check_circle,
