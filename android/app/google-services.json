@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "154111777957",
+    "firebase_url": "https://uploadfiles-891be-default-rtdb.firebaseio.com",
+    "project_id": "uploadfiles-891be",
+    "storage_bucket": "uploadfiles-891be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154111777957:android:c6fdafe83000cf091f014c",
+        "android_client_info": {
+          "package_name": "com.example.lecture_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154111777957-a7tn59lp9hv3gi67tdbl9s04dme2dfnb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lecture_app",
+            "certificate_hash": "f0676767438123f02dbd073439da0ac65705daa9"
+          }
+        },
+        {
+          "client_id": "154111777957-7ejbhlijqhds2is2pn741rnp27tafdqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCilpQzVtYcW8l8sSQi5rC54i890vpJacI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154111777957-7ejbhlijqhds2is2pn741rnp27tafdqb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "154111777957-k9ccsjqc81tam3koapb4odihinsk39hb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.lectureApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="86" height="86" viewBox="0 0 86 86">
+  <g id="Group_59" data-name="Group 59" transform="translate(-1326 -2633)">
+    <circle id="Ellipse_37" data-name="Ellipse 37" cx="43" cy="43" r="43" transform="translate(1326 2633)" fill="#006782"/>
+    <g id="CameraStartButton" transform="translate(1352.211 2655.183)">
+      <g id="Rectangle_17" data-name="Rectangle 17" transform="translate(-0.211 13.533)" fill="none" stroke="#fff" stroke-width="2">
+        <rect width="30.564" height="20.376" stroke="none"/>
+        <rect x="1" y="1" width="28.564" height="18.376" fill="none"/>
+      </g>
+      <path id="Path_79" data-name="Path 79" d="M2223,2802.9l8.3-2.4v13.863l-8.3-2.4" transform="translate(-2193.593 -2783.382)" fill="none" stroke="#fff" stroke-width="2"/>
+      <g id="Ellipse_38" data-name="Ellipse 38" transform="translate(2.053 -1.183)" fill="none" stroke="#fff" stroke-width="2">
+        <circle cx="7.924" cy="7.924" r="7.924" stroke="none"/>
+        <circle cx="7.924" cy="7.924" r="6.924" fill="none"/>
+      </g>
+      <g id="Ellipse_39" data-name="Ellipse 39" transform="translate(15.637 3.345)" fill="none" stroke="#fff" stroke-width="2">
+        <ellipse cx="6.226" cy="5.66" rx="6.226" ry="5.66" stroke="none"/>
+        <ellipse cx="6.226" cy="5.66" rx="5.226" ry="4.66" fill="none"/>
+      </g>
+      <path id="Path_80" data-name="Path 80" d="M2217.711,2809.371l-6.673,9.343" transform="translate(-2204.92 -2776.401)" fill="none" stroke="#fff" stroke-width="2"/>
+      <path id="Path_81" data-name="Path 81" d="M2215.5,2808.792v8.494" transform="translate(-2200.395 -2774.973)" fill="none" stroke="#fff" stroke-width="2"/>
+      <path id="Path_82" data-name="Path 82" d="M2217,2808.49l6.316,8.738" transform="translate(-2198.874 -2775.278)" fill="none" stroke="#fff" stroke-width="2"/>
+      <path id="Path_83" data-name="Path 83" d="M2213,2803.94h10.731" transform="translate(-2202.93 -2779.893)" fill="none" stroke="#fff" stroke-width="2"/>
+    </g>
+  </g>
+</svg>
