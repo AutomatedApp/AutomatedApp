@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lecture_app/core/utils/app_colors.dart';
@@ -20,6 +22,18 @@ import 'upload content/Upload_files.dart';
 import 'package:lecture_app/core/utils/network/local_network.dart';
 class HomePage extends StatefulWidget {
   static final ROUTE='HomePage';
+  static Future<bool> logoutuser() async {
+
+    var email= cashNetwork.getCashData(key: "email");
+    var token= cashNetwork.getCashData(key: "token");
+    if(email!=null && token!=null){
+      cashNetwork.removeFromCash(key: "email");
+      cashNetwork.removeFromCash(key: "token");
+      return true;
+    }else{
+      return false;
+    }
+  }
   const HomePage({Key? key}) : super(key: key);
   @override
   State<HomePage> createState() => _HomePageState();
@@ -29,6 +43,7 @@ class _HomePageState extends State<HomePage> {
   MyLocaleController controller = Get.find();
   @override
   Widget build(BuildContext context) {
+    var name=cashNetwork.getCashData(key: "name");
     return Scaffold(
       drawer: Drawer(
 
@@ -36,10 +51,20 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.symmetric(horizontal: 18),
           child: ListView(
             children: [
-              DrawerHeader(child:  CircleAvatar(radius: 60,
-
-                child:  Image(image: AssetImage("R/icons/PIC-1.png"),),),
+              DrawerHeader(
+                child:  Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(radius: 40,
+                    backgroundImage:  FileImage( File(cashNetwork.getCashData(key: "image_profile"))),),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(name!=""?'${cashNetwork.getCashData(key: "name")}':"User",style: TextStyle(color: Colors.grey,fontSize: 24),),
+                  ),
+                ],
               ),
+              ),
+              SizedBox(height: 15,),
               SettingsTile(
                 color: AppColors.primary,
                 icon: Icons.person,
@@ -147,7 +172,7 @@ class _HomePageState extends State<HomePage> {
               TextButton.icon(
                 icon: Icon(Icons.person,color: AppColors.primary,),
                 onPressed: (){
-                  cashNetwork.removeFromCash(key: "token");
+                  HomePage.logoutuser();
                   Navigator.pushNamedAndRemoveUntil(context,SplshScreen.ROUTE,(route)=>false);
                 },
                 label: Text(

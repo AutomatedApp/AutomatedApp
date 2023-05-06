@@ -29,18 +29,17 @@ class _AboutAppState extends State<AboutApp> {
       appBar: AppBar(
         title: Center(
           child: Text('About App',
-            style: TextStyle(color: AppColors.primary,
+            style: TextStyle(color: Colors.white,
                 fontSize: 25,
                 fontFamily: AppStrings.constantFont,
             ),
           ),
         ),
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         // backgroundColor: AppColors.primary,
         elevation: 1,
         leading: IconButton(
           icon: Icon(Icons.arrow_back,
-            color: AppColors.primary,
+            color: Colors.white,
           ),
           onPressed: () {
             CircularProgressIndicator();
@@ -49,15 +48,6 @@ class _AboutAppState extends State<AboutApp> {
             );
           },
         ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.menu_sharp,
-              color: AppColors.primary,
-            ),
-            onPressed: () {},
-          ),
-        ],
       ),
       body: Column(
         children: [

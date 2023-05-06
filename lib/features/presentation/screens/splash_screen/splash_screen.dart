@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:lecture_app/core/utils/app_colors.dart';
 import 'package:lecture_app/core/utils/app_images.dart';
 import 'package:lecture_app/core/utils/app_strings.dart';
+import 'package:lecture_app/features/presentation/screens/HomePage.dart';
 import 'package:lecture_app/features/presentation/screens/nav_bottom_screens/nav_home.dart';
 import 'package:lecture_app/core/utils/network/local_network.dart';
 
@@ -23,7 +24,7 @@ class _SplshScreenState extends State<SplshScreen> {
     super.initState();
     Timer(Duration(seconds: 3),
             ()=>Navigator.pushReplacementNamed(
-                context, token !=null &&token!=""? NavHome.ROUTE:LoginScreen.ROUTE)
+                context, token !=null &&token!=""&& HomePage.logoutuser()!=true? NavHome.ROUTE:LoginScreen.ROUTE)
     );
   }
   @override

@@ -14,7 +14,7 @@ class constants{
           icon: Icon(Icons.gpp_good,size: 40),
         ));
   }
-  static void Dialog({required BuildContext context,required String msg,required String image}){
+  static void Dialog({required BuildContext context,required String msg,required String image,Function? onpressed}){
     showDialog(context: context, builder: (context)=>
         AlertDialog(
           backgroundColor: AppColors.homePage,
@@ -24,6 +24,38 @@ class constants{
             SizedBox(height: 10,),
             Center(child: Text(msg)),
           ],
+
+        ));
+  }
+  static void messageDialog({required BuildContext context,required String msg,required String path}){
+    showDialog(context: context, builder: (context)=>
+        AlertDialog(
+          backgroundColor: AppColors.homePage,
+          shape:Border.symmetric() ,
+          actions: [
+            SizedBox(height: 10,),
+            Center(child: Text(msg,style: TextStyle(
+              fontSize: 20.0,
+              color: Colors.black,
+            ),)),
+            SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+              TextButton(onPressed: (){ Navigator.pop(
+                context,
+              );}, child: Text('Cansel',style: TextStyle(
+                fontSize: 20.0,
+                color: Colors.black,
+              ),)),
+              TextButton(onPressed: (){
+              }, child: Text('Ok',style: TextStyle(
+                fontSize: 20.0,
+                color: Colors.black,
+              ),))
+            ],)
+          ],
+
         ));
   }
   static void showToast({required String msg, Color? color, ToastGravity? gravity}){

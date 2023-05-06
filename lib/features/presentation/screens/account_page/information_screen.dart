@@ -8,6 +8,7 @@ import 'package:lecture_app/features/presentation/screens/account_page/profile_s
 import 'package:lecture_app/features/presentation/screens/settings_page/setting_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:lecture_app/core/utils/network/local_network.dart';
 
 class InformationScreen extends StatefulWidget {
   static final ROUTE='InformationScreen';
@@ -18,6 +19,8 @@ class InformationScreen extends StatefulWidget {
 }
 
 class _InformationScreenState extends State<InformationScreen> {
+  var name=cashNetwork.getCashData(key: "name");
+  var jop=cashNetwork.getCashData(key: "jop");
   DateTime date = DateTime.now();
   File? yearsplanimage;
   File? mylecturescheduleimage;
@@ -90,18 +93,18 @@ class _InformationScreenState extends State<InformationScreen> {
                 height: 115,
                 width: 115,
                 child: CircleAvatar(
-                  backgroundImage: AssetImage("R/icons/PIC-1.png"),
+                  backgroundImage:FileImage( File(cashNetwork.getCashData(key: "image_profile"))),
                 ),
               ),
               Text(
-                'Dr.Osama ElKomy',
+                name!=""?'${cashNetwork.getCashData(key: "name")}':"User",
                 style: TextStyle(
                   fontSize: 20.0,
                   fontFamily: AppStrings.constantFont,
                 ),
               ),
               Text(
-                'Proffessor',
+                jop!=""?'${cashNetwork.getCashData(key: "jop")}':'Proffessor',
                 style: TextStyle(
                   fontSize: 20.0,
                   fontFamily: AppStrings.constantFont,
@@ -140,8 +143,6 @@ class _InformationScreenState extends State<InformationScreen> {
                 ],
               ),
               SizedBox(
-                  // _imagepath != null ? FileImage(File(_imagepath!)):
-
                   width: double.infinity,
                   child: mylecturescheduleimage == null
                       ? Image(

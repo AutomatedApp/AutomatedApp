@@ -206,7 +206,10 @@ class _LoginScreenState extends State<LoginScreen> {
         email: email,
         password: pass
     );
+     cashNetwork.insertToCash( key: "pass",value: pass!);
+     cashNetwork.insertToCash( key: "email",value: email!);
      cashNetwork.insertToCash(key: "token", value: credential.user!.uid);
      print("the tt $token");
   }
 }
+
