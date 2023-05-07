@@ -45,6 +45,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var name=cashNetwork.getCashData(key: "name");
     return Scaffold(
+
       drawer: Drawer(
 
         child: Padding(
@@ -59,7 +60,13 @@ class _HomePageState extends State<HomePage> {
                     backgroundImage:  FileImage( File(cashNetwork.getCashData(key: "image_profile"))),),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text(name!=""?'${cashNetwork.getCashData(key: "name")}':"User",style: TextStyle(color: Colors.grey,fontSize: 24),),
+                    child: Text(name!=""?'${cashNetwork.getCashData(key: "name")}':"User", style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: AppStrings.primaryFont,
+                      color: Colors.grey,
+                    ),
+                    ),
                   ),
                 ],
               ),
@@ -95,9 +102,11 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(width: 30),
                   Text(
                     lang?"English":"العربية",
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
+                      fontFamily: AppStrings.primaryFont,
+                      color: Colors.black,
                     ),
                   ),
                   const Spacer(),
@@ -178,10 +187,11 @@ class _HomePageState extends State<HomePage> {
                 label: Text(
                   "LogOut".tr,
                   style: TextStyle(
-                      fontFamily: AppStrings.constantFont,
-                      color: AppColors.primary,
-                      fontSize:  20,
-                      fontWeight: FontWeight.bold),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: AppStrings.primaryFont,
+                    color: AppColors.primary,
+                  ),
                 ),
               ),
             ],
@@ -190,7 +200,9 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       appBar: AppBar(
-        title:  Text('Home'.tr,
+        title:  Text('Home'.tr,style: TextStyle(
+          fontSize: AppStrings.app_header,
+        ),
         ),
         backgroundColor:AppColors.primary ,
         foregroundColor: Colors.white,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lecture_app/core/utils/app_colors.dart';
+import 'package:lecture_app/core/utils/app_strings.dart';
 import 'package:lecture_app/features/presentation/screens/HomePage.dart';
 import 'package:lecture_app/features/presentation/screens/Statistics%20Page/Statistics.dart';
 import 'package:lecture_app/features/presentation/screens/todo_task/main_page.dart';
@@ -50,7 +51,7 @@ class _NavHomeState extends State<NavHome> {
                     Text(
                       'Statistics'.tr,
                       style: TextStyle(
-                        color: currentTab==1? AppColors.primary : Colors.grey,
+                        color: currentTab==1? AppColors.primary : Colors.grey,fontSize: 16,fontFamily: AppStrings.primaryFont
                       ),
                     )
                   ],
@@ -74,7 +75,7 @@ class _NavHomeState extends State<NavHome> {
                     Text(
                       'Home'.tr,
                       style: TextStyle(
-                        color: currentTab==0? AppColors.primary : Colors.grey,
+                        color: currentTab==0? AppColors.primary : Colors.grey,fontSize: 16,fontFamily: AppStrings.primaryFont
                       ),
                     )
                   ],
@@ -98,7 +99,7 @@ class _NavHomeState extends State<NavHome> {
                     Text(
                       'ToDo'.tr,
                       style: TextStyle(
-                        color: currentTab==2? AppColors.primary : Colors.grey,
+                        color: currentTab==2? AppColors.primary : Colors.grey,fontSize: 16,fontFamily: AppStrings.primaryFont
                       ),
                     )
                   ],

@@ -41,11 +41,11 @@ class _AccountScreenState extends State<AccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          backgroundColor:  AppColors.primary,
           elevation: 1,
           leading: IconButton(
             icon: Icon(Icons.arrow_back,
-              color: AppColors.primary,
+              color:Colors.white
             ),
             onPressed: () {
               CircularProgressIndicator();
@@ -56,7 +56,7 @@ class _AccountScreenState extends State<AccountScreen> {
             IconButton(
               icon: Icon(
                 Icons.save,
-                color: AppColors.primary,
+                color: Colors.white,
               ),
               onPressed: () {
                 if (formKey.currentState!.validate()) {
@@ -92,7 +92,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         'Change Photo'.tr,
                         style: TextStyle(
                             fontSize: 20,
-                            fontFamily: AppStrings.constantFont,
+                            fontFamily: AppStrings.primaryFont,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -121,17 +121,17 @@ class _AccountScreenState extends State<AccountScreen> {
                                   child: Text(
                                     "Upload".tr,
                                     style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontFamily: AppStrings.constantFont,
-                                      color: Colors.white,
-                                    ),
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontFamily: AppStrings.primaryFont,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                   color: AppColors.primary,
                                 ),
                                 MaterialButton(
                                   shape: RoundedRectangleBorder(
                                       borderRadius:
-                                      BorderRadius.all(Radius.circular(20.0))),
+                                      BorderRadius.all(Radius.circular(15.0))),
                                   elevation: 5.0,
                                   height: 40,
                                   onPressed: (){
@@ -144,10 +144,10 @@ class _AccountScreenState extends State<AccountScreen> {
                                   child: Text(
                                     "Save".tr,
                                     style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontFamily: AppStrings.constantFont,
-                                      color: Colors.white,
-                                    ),
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontFamily: AppStrings.primaryFont,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                   color: AppColors.primary,
                                 ),
@@ -162,186 +162,156 @@ class _AccountScreenState extends State<AccountScreen> {
                     Text(
                       'Name'.tr,
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        fontFamily: AppStrings.primaryFont,
+                        color: Colors.black,
                       ),
                     ),
                     SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 255,
-                          child: TextFormField(
-                            onChanged: (data){
-                              name=data;
-                            },
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'name must not be empty'.tr;
-                              }
-                              if (value!.length>=7) {
-                              }else{
-                                return 'Please Enter The Correct Name'.tr;
-                              }
-                              return null;
-                            },
-                            controller:nameController,
-                            decoration: InputDecoration(
-                              enabled: true,
-                              contentPadding: const EdgeInsets.only(
-                                  left: 14.0, bottom: 8.0, top: 8.0),
-
-                              hintText: 'Dr.${cashNetwork.getCashData(key: "name")}',
-                              hintStyle: TextStyle(
+                      width: double.infinity,
+                      child: TextFormField(
+                        onChanged: (data){
+                          name=data;
+                        },
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'name must not be empty'.tr;
+                          }
+                          if (value!.length>=7) {
+                          }else{
+                            return 'Please Enter The Correct Name'.tr;
+                          }
+                          return null;
+                        },
+                        controller:nameController,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),),
+                          suffix: Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: Text( 'Edit'.tr,
+                              style: TextStyle(
                                 fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: AppStrings.constantFont,
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(2),
-                                borderSide: BorderSide(
-                                  width: 1.0,
-                                ),
+                                fontFamily: AppStrings.primaryFont,
+                                color: Colors.black,
                               ),
                             ),
                           ),
+                          enabled: true,
+                          contentPadding: const EdgeInsets.only(
+                              left: 14.0, bottom: 8.0, top: 8.0),
+
+                          hintText: 'Dr.${cashNetwork.getCashData(key: "name")}',
+                          hintStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: AppStrings.constantFont,
+                          ),
                         ),
-                        TextButton(onPressed: (){},
-                            child: Text('Edit'.tr,
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: AppStrings.constantFont,
-                              color: AppColors.primary,
-                            ),
-                            )
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
+                      ),
                     ),
                     Text(
                       'Email'.tr,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: AppStrings.primaryFont,
+                        color: Colors.black,
+                      ),
                     ),
                     SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 255,
-                          child: TextFormField(
-                            onChanged: (data){
-                              email=data;
-                            },
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Email address must not be empty'.tr;
-                              }
-                              if (value!.isEmail) {
+                      width: double.infinity,
+                      child: TextFormField(
+                        onChanged: (data){
+                          email=data;
+                        },
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Email address must not be empty'.tr;
+                          }
+                          if (value!.isEmail) {
 
-                              }else{
-                                return 'Please Enter The Correct Email'.tr;
-                              }
-                              return null;
-                            },
-                            controller: emailController,
-                            decoration: InputDecoration(
-                              enabled: true,
-                              contentPadding: const EdgeInsets.only(
-                                  left: 14.0, bottom: 8.0, top: 8.0),
-                              hintText: '${cashNetwork.getCashData(key: "email")}',
-                              hintStyle: TextStyle(
+                          }else{
+                            return 'Please Enter The Correct Email'.tr;
+                          }
+                          return null;
+                        },
+                        controller: emailController,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),),
+                          suffix: Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: Text( 'Edit'.tr,
+                              style: TextStyle(
                                 fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: AppStrings.constantFont,
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(2),
-                                borderSide: BorderSide(
-                                  color: AppColors.primary,
-                                  width: 1.0,
-                                ),
+                                fontFamily: AppStrings.primaryFont,
+                                color: Colors.black,
                               ),
                             ),
                           ),
+                          enabled: true,
+                          contentPadding: const EdgeInsets.only(
+                              left: 14.0, bottom: 8.0, top: 8.0),
+                          hintText: '${cashNetwork.getCashData(key: "email")}',
+                          hintStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: AppStrings.constantFont,
+                          ),
+
                         ),
-                        TextButton(onPressed: (){},
-                            child: Text('Edit'.tr,
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: AppStrings.constantFont,
-                                color: AppColors.primary,
-                              ),
-                            ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
+                      ),
                     ),
                     Text(
                       'Proffessor'.tr,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: AppStrings.primaryFont,
+                        color: Colors.black,
+                      ),
                     ),
                     SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 255,
-                          child: TextFormField(
-                            onChanged: (data){
-                              jop=data;
-                            },
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'The position must not be empty'.tr;
-                              }
-                              if (value!.length>=2) {
+                      width: double.infinity,
+                      child: TextFormField(
+                        onChanged: (data){
+                          jop=data;
+                        },
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'The position must not be empty'.tr;
+                          }
+                          if (value!.length>=2) {
 
-                              }else{
-                                return 'Please Enter The Correct Position'.tr;
-                              }
-                              return null;
-                            },
-                            controller: jopController,
-                            decoration: InputDecoration(
-                              enabled: true,
-                              contentPadding: const EdgeInsets.only(
-                                  left: 14.0, bottom: 8.0, top: 8.0),
-                              hintText: '${cashNetwork.getCashData(key: "jop")}',
-                              hintStyle: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: AppStrings.constantFont,
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(2),
-                                borderSide: BorderSide(
-                                  color: AppColors.primary,
-                                  width: 1.0,
-                                ),
-                              ),
+                          }else{
+                            return 'Please Enter The Correct Position'.tr;
+                          }
+                          return null;
+                        },
+                        controller: jopController,
+                        decoration: InputDecoration(
+                          suffix: Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: Text( 'Edit'.tr,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: AppStrings.primaryFont,
+                              color: Colors.black,
+                            ),
                             ),
                           ),
+                          enabled: true,
+                          contentPadding: const EdgeInsets.only(
+                              left: 14.0, bottom: 8.0, top: 8.0),
+                          hintText: '${cashNetwork.getCashData(key: "jop")}',
+                          hintStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: AppStrings.constantFont,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),),
                         ),
-                        TextButton(onPressed: (){},
-                            child: Text('Edit'.tr,
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: AppStrings.constantFont,
-                                color: AppColors.primary,
-                              ),
-                            )
-                        ),
-                      ],
+                      ),
                     ),
                     SizedBox(
                       height: 30,
@@ -356,10 +326,10 @@ class _AccountScreenState extends State<AccountScreen> {
                       child: Text(
                         "Change Password".tr,
                         style: TextStyle(
-                          fontSize: 20.0,
-                          fontFamily: AppStrings.constantFont,
-                          color: Colors.white,
-                        ),
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontFamily: AppStrings.primaryFont,
+                            fontWeight: FontWeight.bold),
                       ),
                       color: AppColors.primary,
                     ),
@@ -371,23 +341,4 @@ class _AccountScreenState extends State<AccountScreen> {
         )
     );
   }
-
-  // void Saveimage(path) async{
-  //   SharedPreferences saveimage = await SharedPreferences.getInstance();
-  //   saveimage.setString("imagepath", path);
-  // }
-  //
-  // void LoadImage() async{
-  //   SharedPreferences saveimage = await SharedPreferences.getInstance();
-  //   setState(() {
-  //     _imagepath = saveimage.getString("imagepath");
-  //   });
-  // }
-  //
-  // void PickImage()  async{
-  //   var image = await imagepicker.pickImage(source: ImageSource.gallery);
-  //   setState(() {
-  //     _image = (image as File?)!;
-  //   });
-  // }
 }

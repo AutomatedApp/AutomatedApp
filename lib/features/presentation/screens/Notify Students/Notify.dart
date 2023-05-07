@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lecture_app/core/utils/app_colors.dart';
 import 'package:lecture_app/core/utils/app_images.dart';
+import 'package:lecture_app/core/utils/app_strings.dart';
 import 'package:lecture_app/core/utils/constant.dart';
 
 
@@ -27,7 +28,7 @@ class notify extends StatelessWidget
             Text(
               'Notify Students'.tr,
               style: TextStyle(color: Colors.white,
-                  fontSize: 30), //<-- SEE HERE
+                  fontSize: AppStrings.app_header), //<-- SEE HERE
             ),
 
           ],
@@ -130,7 +131,14 @@ class notify extends StatelessWidget
                           ),
                           backgroundColor: MaterialStateProperty.all<Color>(AppColors.primary)),
 
-                      child:Text('Send'.tr,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),))
+                      child:Text('Send'.tr, style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: AppStrings.primaryFont,
+                        color: Colors.white,
+                      ),
+                      ),
+                  )
               ],
             ),
                 ))

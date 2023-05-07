@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lecture_app/core/utils/app_strings.dart';
 
 class SettingsTile extends StatelessWidget {
   final Color color;
@@ -34,9 +35,11 @@ class SettingsTile extends StatelessWidget {
           const SizedBox(width: 30),
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
+              fontFamily: AppStrings.primaryFont,
+              color: Colors.black,
             ),
           ),
           const Spacer(),

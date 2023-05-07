@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:lecture_app/core/utils/app_colors.dart';
+import 'package:lecture_app/core/utils/app_images.dart';
 import 'package:lecture_app/core/utils/app_strings.dart';
 import 'package:lecture_app/core/utils/network/local_network.dart';
 
@@ -34,7 +35,11 @@ class _ChangePasswordState extends State<ChangePassword> {
         title: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
           Text(
             'Change Password'.tr,
-            style: TextStyle(fontSize: 20, fontFamily: AppStrings.constantFont),
+            style: TextStyle(
+              fontSize:AppStrings.app_header,
+              fontFamily: AppStrings.primaryFont,
+              color: Colors.white,
+            ),
           ),
         ]),
         backgroundColor: AppColors.primary,
@@ -42,7 +47,7 @@ class _ChangePasswordState extends State<ChangePassword> {
         centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back,
-            color: AppColors.primary,
+            color: Colors.white,
           ),
           onPressed: () {
             CircularProgressIndicator();
@@ -64,7 +69,7 @@ class _ChangePasswordState extends State<ChangePassword> {
           height: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("R/icons/Background.png"),
+              image: AssetImage(ImageAssets.background_Setting),
               fit: BoxFit.cover,
             ),
           ),
@@ -111,7 +116,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                       },
                     ),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(2),
+                      borderRadius: BorderRadius.circular(15),
                       borderSide: BorderSide(
                         color:AppColors.primary,
                         width: 1.0,
@@ -156,7 +161,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                       },
                     ),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(2),
+                      borderRadius: BorderRadius.circular(15),
                       borderSide: BorderSide(
                         color:AppColors.primary,
                         width: 1.0,
@@ -204,7 +209,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                       },
                     ),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(2),
+                      borderRadius: BorderRadius.circular(15),
                       borderSide: BorderSide(
                         color:AppColors.primary,
                         width: 1.0,
@@ -231,8 +236,9 @@ class _ChangePasswordState extends State<ChangePassword> {
                   child: Text(
                     "Change Password".tr,
                     style: TextStyle(
-                      fontSize: 20.0,
-                      fontFamily: AppStrings.constantFont,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: AppStrings.primaryFont,
                       color: Colors.white,
                     ),
                   ),

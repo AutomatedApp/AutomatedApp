@@ -45,7 +45,7 @@ class _DataShowState extends State<DataShow> {
             Text(
               'projector'.tr,
               style: TextStyle(color: Colors.white,
-                  fontSize: 30),
+                  fontSize: AppStrings.app_header),
             ),
 
           ],
@@ -67,6 +67,7 @@ class _DataShowState extends State<DataShow> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
+                      width: context.width*.79,
                       decoration: BoxDecoration(
                         color: AppColors.primary,
                         borderRadius: BorderRadius.circular(20.0),
@@ -75,16 +76,22 @@ class _DataShowState extends State<DataShow> {
                       child: MaterialButton(
                         onPressed: () {
                           refdb.child("DataShow").child("flag").set(true).asStream();
-                          refdb.child("DataShow").child("logo").onChildChanged.listen((event)async{
+                          refdb.child("DataShow").child("logo").onValue.listen((event)async{
                              var value = await event.snapshot.value;
-                             constants.Dialog(context: context, msg: 'logo found $value', image: ImageAssets.logo);
+                             if(value=="found"){
+                               return constants.Dialog(context: context, msg: 'datashow is on', image: ImageAssets.logo);
+                             } if(value==" not found") {
+                               return constants.Dialog(context: context, msg: 'datashow is off', image: ImageAssets.logo);
+                             }
                             // Display a message to the user here
                           });
                         },
                         child: Text(
-                          'Check Now',
+                          'Check Now'.tr,
                           style: TextStyle(
-                            fontSize: 27,
+
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
                             fontFamily: AppStrings.primaryFont,
                             color: Colors.white,
                           ),
@@ -95,14 +102,15 @@ class _DataShowState extends State<DataShow> {
                     Container(
                       width: context.width*.79,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: Colors.blueAccent,)
+                        borderRadius: BorderRadius.circular(25),
+                          border: Border.all(color: Colors.grey,)
                       ),
                       child: Column(
+
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                              color: Colors.grey,
+                              color: Color(0xFFE3DFDF),
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             padding: EdgeInsets.symmetric(horizontal: 46,vertical: 8),
@@ -163,21 +171,6 @@ class _DataShowState extends State<DataShow> {
                 ),
               ),
             ),
-            SizedBox(height: 150,),
-            Text('CopyRight © 2023 By Team Masterminds',
-              style: TextStyle(
-                  fontSize: 18,
-                  fontFamily: AppStrings.constantFont,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.primary
-              ),
-            ),
-
-
-
-
-
-
 
           ],
         ),

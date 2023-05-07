@@ -24,7 +24,7 @@ class _SplshScreenState extends State<SplshScreen> {
     super.initState();
     Timer(Duration(seconds: 3),
             ()=>Navigator.pushReplacementNamed(
-                context, token !=null &&token!=""&& HomePage.logoutuser()!=true? NavHome.ROUTE:LoginScreen.ROUTE)
+                context, HomePage.logoutuser()!=true? NavHome.ROUTE:LoginScreen.ROUTE)
     );
   }
   @override
@@ -61,7 +61,7 @@ class _SplshScreenState extends State<SplshScreen> {
             ),
             Text('JUST CLICK!',
               style: TextStyle(
-                fontFamily:  AppStrings.primaryFont,
+                fontFamily:  AppStrings.sego,
                   color: Color(0xFF893612),
                   fontWeight: FontWeight.bold,
                   fontSize: 18

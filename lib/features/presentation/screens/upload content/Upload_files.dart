@@ -90,7 +90,7 @@ class _UploadFiles extends State<UploadFiles> {
             Text(
               'Upload File'.tr,
               style: TextStyle(color: Colors.white,
-                  fontSize: 30), //<-- SEE HERE
+                  fontSize: AppStrings.app_header), //<-- SEE HERE
             ),
 
           ],
@@ -138,7 +138,7 @@ class _UploadFiles extends State<UploadFiles> {
                                 ImageAssets.cloud))
                           ],),
                           Container(
-                            width: context.width*.6,
+                            width: context.width*.7,
                             decoration: BoxDecoration(color: AppColors.primary,
                                 borderRadius: BorderRadius.circular(10.0)),
                             padding: EdgeInsets.symmetric(horizontal: 50),
@@ -147,7 +147,8 @@ class _UploadFiles extends State<UploadFiles> {
                               child: Text(
                                 'Browse Files'.tr,
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
                                   fontFamily: AppStrings.primaryFont,
                                   color: Colors.white,
                                 ),
@@ -156,7 +157,7 @@ class _UploadFiles extends State<UploadFiles> {
                           ),
                           SizedBox(height: 30,),
                           Container(
-                            width: context.width*.6,
+                            width: context.width*.7,
                             decoration: BoxDecoration(color:AppColors.primary,
                                 borderRadius: BorderRadius.circular(10.0)),
                             padding: EdgeInsets.symmetric(horizontal: 50),
@@ -165,7 +166,8 @@ class _UploadFiles extends State<UploadFiles> {
                               child: Text(
                                 'Send'.tr,
                                 style: TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
                                   fontFamily: AppStrings.primaryFont,
                                   color: Colors.white,
                                 ),

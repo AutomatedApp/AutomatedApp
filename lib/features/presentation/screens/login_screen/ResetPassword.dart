@@ -26,7 +26,7 @@ class _ResetPasswordState extends State<ResetPassword> {
         title: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
           Text(
             'Reset Password',
-            style: TextStyle(fontSize: 25, fontFamily: AppStrings.constantFont),
+            style: TextStyle(fontSize: AppStrings.app_header, fontFamily: AppStrings.constantFont),
           ),
         ]),
         backgroundColor: AppColors.primary,

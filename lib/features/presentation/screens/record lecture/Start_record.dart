@@ -29,7 +29,7 @@ class _record_pageState extends State<RecordPage> {
             Text(
               'Record'.tr,
               style: TextStyle(color: Colors.white,
-                  fontSize: 30), //<-- SEE HERE
+                  fontSize: AppStrings.app_header), //<-- SEE HERE
             ),
             const SizedBox(
               width: 4,

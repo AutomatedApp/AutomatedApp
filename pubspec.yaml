@@ -65,6 +65,9 @@ flutter:
     - R/
 
   fonts:
+    - family: Poppins
+      fonts:
+          - asset: R/fonts/Poppins-Regular.ttf
     - family: Microsoft PhagsPa
       fonts:
         - asset: R/fonts/phagspa.ttf

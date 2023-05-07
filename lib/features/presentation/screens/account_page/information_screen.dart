@@ -56,11 +56,11 @@ class _InformationScreenState extends State<InformationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: AppColors.primary,
         elevation: 1,
         leading: IconButton(
           icon: Icon(Icons.arrow_back,
-            color: AppColors.primary,
+            color: Colors.white
           ),
           onPressed: () {
             CircularProgressIndicator();
@@ -73,7 +73,7 @@ class _InformationScreenState extends State<InformationScreen> {
           IconButton(
             icon: Icon(
               Icons.edit,
-              color: AppColors.primary,
+              color: Colors.white,
             ),
             onPressed: () {
               CircularProgressIndicator();
@@ -99,15 +99,16 @@ class _InformationScreenState extends State<InformationScreen> {
               Text(
                 name!=""?'${cashNetwork.getCashData(key: "name")}':"User",
                 style: TextStyle(
-                  fontSize: 20.0,
-                  fontFamily: AppStrings.constantFont,
+                  fontSize: 20,
+                  fontFamily: AppStrings.primaryFont,
+                  color: Colors.black,
                 ),
               ),
               Text(
                 jop!=""?'${cashNetwork.getCashData(key: "jop")}':'Proffessor',
                 style: TextStyle(
-                  fontSize: 20.0,
-                  fontFamily: AppStrings.constantFont,
+                  fontSize: 20,
+                  fontFamily: AppStrings.primaryFont,
                   color: Colors.grey,
                 ),
               ),
@@ -120,9 +121,11 @@ class _InformationScreenState extends State<InformationScreen> {
                   Text(
                     'My Lecture Schedule',
                     style: TextStyle(
-                        color: AppColors.primary,
-                        fontSize: 20,
-                        fontFamily: AppStrings.constantFont),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: AppStrings.primaryFont,
+                      color:AppColors.primary,
+                    ),
                   ),
                   IconButton(
                     icon: Icon(
@@ -158,9 +161,11 @@ class _InformationScreenState extends State<InformationScreen> {
                   Text(
                     'Years Plan',
                     style: TextStyle(
-                        color: AppColors.primary,
-                        fontSize: 20,
-                        fontFamily: AppStrings.constantFont),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: AppStrings.primaryFont,
+                      color:AppColors.primary,
+                    ),
                   ),
                   IconButton(
                     icon: Icon(
@@ -187,9 +192,11 @@ class _InformationScreenState extends State<InformationScreen> {
                   Text(
                     'Calender',
                     style: TextStyle(
-                        color: AppColors.primary,
-                        fontSize: 20,
-                        fontFamily: AppStrings.constantFont),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: AppStrings.primaryFont,
+                      color: AppColors.primary,
+                    ),
                   ),
                   IconButton(
                     icon: Icon(
@@ -219,7 +226,7 @@ class _InformationScreenState extends State<InformationScreen> {
                 style: TextStyle(
                     color: AppColors.primary,
                     fontSize: 20,
-                    fontFamily: AppStrings.constantFont),
+                    fontFamily: AppStrings.primaryFont),
               ),
               Container(
                 padding: EdgeInsets.all(20),

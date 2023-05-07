@@ -19,7 +19,7 @@ class TaskScreen extends StatelessWidget {
     return Scaffold(
       appBar:AppBar(
 
-        title:  Text('ToDo'.tr),
+        title:  Text('ToDo'.tr,style: TextStyle(fontSize: AppStrings.app_header),),
         backgroundColor:AppColors.primary ,
         foregroundColor: Colors.white,
         centerTitle: true,
@@ -43,36 +43,9 @@ class TaskScreen extends StatelessWidget {
         ],
       ),
       backgroundColor: Colors.grey.withOpacity(0.2),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 158),
-        child: FloatingActionButton.extended(
-          onPressed: () {
-            showModalBottomSheet(
-              context: context,
-              builder: (context) => SingleChildScrollView(
-                child: Container(
-                  padding: EdgeInsets.only(
-                      bottom: MediaQuery.of(context).viewInsets.bottom
-                  ),
-                  child: AddTaskScreen((newTaskTitle) {
-                    // setState(() {
-                    //   tasks.add(Task(name: newTaskTitle));
-                    //   Navigator.pop(context);
-                    // });
-                  }),
-                ),
-              ),
-            );
-          },
-          backgroundColor: AppColors.primary,
-          label: Text("New task".tr,style: TextStyle(fontFamily:AppStrings.primaryFont ),),
-          icon: Icon(Icons.add),
-        ),
-      ),
       body: Container(
-        width:500,
-        height: 500,
+        width:600,
+        height: 600,
         margin: const EdgeInsets.all(30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -88,7 +61,33 @@ class TaskScreen extends StatelessWidget {
                 ),
                 child: TasksList(),
               ),
-            )
+            ),
+            MaterialButton(
+              minWidth: MediaQuery.of(context).size.width*.5,
+              height: MediaQuery.of(context).size.width*.11,
+              color: AppColors.primary,
+              shape: RoundedRectangleBorder(
+
+                  borderRadius: BorderRadius.circular(20)
+              ),
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) => Container(
+                    child: AddTaskScreen((newTaskTitle) {
+                    }),
+                  ),
+                );
+              },
+              child: Text(
+                "New task".tr,
+                style: TextStyle(
+                    fontFamily: AppStrings.constantFont,
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
           ],
         ),
       ),

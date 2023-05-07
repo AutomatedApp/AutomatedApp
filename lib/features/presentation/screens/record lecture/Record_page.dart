@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lecture_app/core/utils/app_colors.dart';
 import 'package:lecture_app/core/utils/app_images.dart';
+import 'package:lecture_app/core/utils/app_strings.dart';
 import 'package:lecture_app/features/presentation/screens/nav_bottom_screens/nav_home.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
@@ -39,7 +40,7 @@ class _recordState extends State<record> {
             Text(
               'Record'.tr,
               style: TextStyle(color: Colors.white,
-                  fontSize: 30), //<-- SEE HERE
+                  fontSize: AppStrings.app_header), //<-- SEE HERE
             ),
             const SizedBox(
               width: 4,
@@ -94,7 +95,6 @@ class _recordState extends State<record> {
                            Icons.play_circle,
                          color: AppColors.primary,
                           size: 90,
-
                       ),
                     ),
                     SizedBox(width: 100,),

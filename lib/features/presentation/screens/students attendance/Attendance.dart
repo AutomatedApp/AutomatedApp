@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lecture_app/core/utils/app_strings.dart';
 
 class AttendanceList extends StatefulWidget {
   static final ROUTE='Attendce';
@@ -103,7 +104,7 @@ class _AttendanceListState extends State<AttendanceList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Attendance List'),
+        title: Text('Attendance List',style: TextStyle(fontSize: AppStrings.app_header),),
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(40.0),
           child: Padding(
@@ -111,11 +112,20 @@ class _AttendanceListState extends State<AttendanceList> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text('Robotics', style: TextStyle(fontSize: 20.0,color: Colors.white)),
+                Text('Robotics',  style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: AppStrings.primaryFont,
+                  color: Colors.white,
+                ),
+                ),
                 Container(height: 25,width: 1.5,color: Colors.white,),
                 Text(
                ('May 21st'),
-                  style: TextStyle(fontSize: 20.0,color: Colors.white),
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: AppStrings.primaryFont,
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),

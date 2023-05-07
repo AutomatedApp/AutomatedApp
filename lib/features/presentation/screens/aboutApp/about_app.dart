@@ -30,8 +30,8 @@ class _AboutAppState extends State<AboutApp> {
         title: Center(
           child: Text('About App',
             style: TextStyle(color: Colors.white,
-                fontSize: 25,
-                fontFamily: AppStrings.constantFont,
+                fontSize: AppStrings.app_header,
+                fontFamily: AppStrings.primaryFont,
             ),
           ),
         ),
