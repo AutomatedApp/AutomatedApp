@@ -27,7 +27,7 @@ onPressed:onpressed!(),
 child: Text(
 label,
 style: TextStyle(
-fontFamily: fontFamily?? AppStrings.constantFont,
+fontFamily: fontFamily?? AppStrings.primaryFont,
 color: fontColor?? Colors.white,
 fontSize: fontsize?? 20,
 fontWeight: FontWeight.bold),

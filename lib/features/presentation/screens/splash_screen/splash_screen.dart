@@ -24,7 +24,7 @@ class _SplshScreenState extends State<SplshScreen> {
     super.initState();
     Timer(Duration(seconds: 3),
             ()=>Navigator.pushReplacementNamed(
-                context, HomePage.logoutuser()!=true? NavHome.ROUTE:LoginScreen.ROUTE)
+                context, cashNetwork.getCashData(key: "token")!=''? NavHome.ROUTE:LoginScreen.ROUTE)
     );
   }
   @override

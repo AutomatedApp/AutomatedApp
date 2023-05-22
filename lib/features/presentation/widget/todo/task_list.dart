@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lecture_app/core/utils/app_colors.dart';
+import 'package:lecture_app/core/utils/app_strings.dart';
 
 class TaskTile extends StatelessWidget {
   final bool isChecked;
@@ -27,6 +28,7 @@ class TaskTile extends StatelessWidget {
         title: Text(
           taskTitle,
           style: TextStyle(
+            fontFamily: AppStrings.primaryFont,
               decoration: isChecked ? TextDecoration.lineThrough : null),
         ),
         leading: Checkbox(

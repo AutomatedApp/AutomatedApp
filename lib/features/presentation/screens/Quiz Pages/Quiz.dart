@@ -32,7 +32,7 @@ class _QuizPageState extends State<QuizPage> {
   Widget build(BuildContext context) {
      return Scaffold(
       appBar: AppBar(
-        title: Text('Quiz'.tr,style: TextStyle(fontSize: AppStrings.app_header),),
+        title: Text('Quiz'.tr,style: TextStyle(fontSize: AppStrings.app_header,fontFamily: AppStrings.primaryFont),),
         actions: [
           NavigationControls(controller: controller),
           Menu(controller: controller),

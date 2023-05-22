@@ -43,7 +43,7 @@ class _DataShowState extends State<DataShow> {
           children: [
 
             Text(
-              'projector'.tr,
+              'Projector'.tr,
               style: TextStyle(color: Colors.white,
                   fontSize: AppStrings.app_header),
             ),

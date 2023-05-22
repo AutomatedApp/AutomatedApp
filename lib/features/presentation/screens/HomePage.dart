@@ -217,7 +217,7 @@ class _HomePageState extends State<HomePage> {
                 cards(context: context,pushNamed: RecordPage.ROUTE,text:'Record',icon_path:ImageAssets.video ),
                 cards(context: context,pushNamed: UploadFiles.ROUTE,text:'Upload',icon_path:ImageAssets.upload ),
                 cards(context: context,pushNamed: AttendanceList.ROUTE,text:'Attandance',icon_path: ImageAssets.immigration ),
-                cards(context: context,pushNamed: DataShow.ROUTE,text:'projector',icon_path: ImageAssets.tablet ),
+                cards(context: context,pushNamed: DataShow.ROUTE,text:'Projector',icon_path: ImageAssets.tablet ),
                 cards(context: context,pushNamed: notify.ROUTE,text:'Notify',icon_path: ImageAssets.notification ),
                 cards(context: context,pushNamed: QuizPage.ROUTE,text:'Quiz',icon_path:ImageAssets.quiz),
               ],

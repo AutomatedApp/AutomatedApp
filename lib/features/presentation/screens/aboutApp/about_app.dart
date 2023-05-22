@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lecture_app/core/utils/app_colors.dart';
 import 'package:lecture_app/core/utils/app_strings.dart';
-import 'package:lecture_app/features/presentation/screens/settings_page/setting_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:lecture_app/core/utils/app_images.dart';
 
@@ -27,12 +26,10 @@ class _AboutAppState extends State<AboutApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text('About App',
-            style: TextStyle(color: Colors.white,
-                fontSize: AppStrings.app_header,
-                fontFamily: AppStrings.primaryFont,
-            ),
+        title: Text('About App',
+          style: TextStyle(color: Colors.white,
+              fontSize: AppStrings.app_header,
+              fontFamily: AppStrings.primaryFont,
           ),
         ),
         // backgroundColor: AppColors.primary,
@@ -62,16 +59,16 @@ class _AboutAppState extends State<AboutApp> {
               ),
             ),
           ),
-          SizedBox(height: 30,),
+          SizedBox(height: 40,),
           Text('Automated_Lecture_Hall',
             style: TextStyle(
                 fontSize: 20,
-                fontFamily: 'Segoe Print',
+                fontFamily: AppStrings.primaryFont,
                 fontWeight: FontWeight.bold,
                 color: AppColors.primary
             ),
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: 15,),
           Padding(
             padding: const EdgeInsets.only(left:35,right:10),
             child: Center(
@@ -79,14 +76,14 @@ class _AboutAppState extends State<AboutApp> {
               'It is an application to improve and upgrade the quality of education and to make everything inside the lecture hall work automatically with just a few simple clicks and steps.',
                 style: TextStyle(
                     fontSize: 18,
-                    fontFamily: 'Segoe Print',
+                    fontFamily: AppStrings.primaryFont,
                     fontWeight: FontWeight.bold,
                     color: AppColors.primary
                 ),
               ),
             ),
           ),
-          SizedBox(height: 15,),
+          SizedBox(height: 180,),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,

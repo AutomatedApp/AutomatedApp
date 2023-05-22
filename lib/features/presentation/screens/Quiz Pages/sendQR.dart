@@ -63,51 +63,12 @@ class _testState extends State<send> {
                 child: Text(
                   'Send'.tr,
                   style: TextStyle(
-                      fontFamily: AppStrings.constantFont,
+                      fontFamily: AppStrings.primaryFont,
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              // SizedBox(height: 30,),
-              // MaterialButton(
-              //   minWidth: double.infinity,
-              //   height: 50,
-              //   color: AppColors.primary,
-              //   shape: RoundedRectangleBorder(
-              //       borderRadius: BorderRadius.circular(20)),
-              //   onPressed: () {
-              //     refdb.child("video").child("videostate").set("pause").asStream();
-              //   },
-              //   child: Text(
-              //     'Pause',
-              //     style: TextStyle(
-              //         fontFamily: AppStrings.constantFont,
-              //         color: Colors.white,
-              //         fontSize: 20,
-              //         fontWeight: FontWeight.bold),
-              //   ),
-              // ),
-              // SizedBox(height: 30,),
-              // MaterialButton(
-              //   minWidth: double.infinity,
-              //   height: 50,
-              //   color: AppColors.primary,
-              //   shape: RoundedRectangleBorder(
-              //       borderRadius: BorderRadius.circular(20)),
-              //   onPressed: () {
-              //     refdb.child("video").child("videostate").set("stop").asStream();
-              //   },
-              //   child: Text(
-              //     'Stop',
-              //     style: TextStyle(
-              //         fontFamily: AppStrings.constantFont,
-              //         color: Colors.white,
-              //         fontSize: 20,
-              //         fontWeight: FontWeight.bold),
-              //   ),
-              // ),
-
             ]),
       ),
 
