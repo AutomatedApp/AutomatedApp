@@ -30,7 +30,7 @@ class AddTaskScreen extends StatelessWidget {
               autofocus: true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(18)
+                  borderRadius: BorderRadius.circular(10)
                 ),
                 enabled: true,
                 contentPadding: const EdgeInsets.only(

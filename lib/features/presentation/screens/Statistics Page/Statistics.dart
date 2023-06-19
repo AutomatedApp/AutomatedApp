@@ -28,7 +28,7 @@ class _StatisticsState extends State<Statistics> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Statistic'.tr),
+        title: Text('Statistics'.tr),
         actions: [
           NavigationControls(controller: controller),
           Menu(controller: controller),

@@ -70,9 +70,8 @@ class _DataShowState extends State<DataShow> {
                       width: context.width*.79,
                       decoration: BoxDecoration(
                         color: AppColors.primary,
-                        borderRadius: BorderRadius.circular(20.0),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
-                      padding: EdgeInsets.symmetric(horizontal: 55),
                       child: MaterialButton(
                         onPressed: () {
                           refdb.child("DataShow").child("flag").set(true).asStream();
@@ -109,14 +108,15 @@ class _DataShowState extends State<DataShow> {
 
                         children: [
                           Container(
+                            width:double.infinity,
                             decoration: BoxDecoration(
                               color: Color(0xFFE3DFDF),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.only(topLeft: Radius.circular(25),topRight: Radius.circular(25)),
                             ),
                             padding: EdgeInsets.symmetric(horizontal: 46,vertical: 8),
 
                             child: Text(
-                              'Contact with technical man',
+                              'Contact with technical man'.tr,
                               style: TextStyle(
                                 fontSize: 15,
                                 fontFamily: AppStrings.primaryFont,
@@ -124,45 +124,47 @@ class _DataShowState extends State<DataShow> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 30,),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              InkWell(
-                                onTap: (){
-                                  _launchURL(sms);
-                                },
-                                child: Container(
-                                  height: 50,
-                                  width: 50,
-                                  padding: EdgeInsets.all(4),
-                                  margin: EdgeInsets.all(8),
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFF4267B2),
-                                    shape: BoxShape.circle,
+                          SizedBox(height: 20,),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 15.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  onTap: (){
+                                    _launchURL(sms);
+                                  },
+                                  child: Container(
+                                    height: 50,
+                                    width: 50,
+                                    padding: EdgeInsets.all(4),
+                                    margin: EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF4267B2),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Icon(FontAwesomeIcons.commentSms,color: Colors.white,size: 25,),
                                   ),
-                                  child: Icon(FontAwesomeIcons.commentSms,color: Colors.white,size: 25,),
                                 ),
-                              ),
-                              SizedBox(width: 30),
-                              InkWell(
-                                onTap: (){
-                                  _launchURL(call);
-                                },
-                                child: Container(
-                                  height: 50,
-                                  width: 50,
-                                  padding: EdgeInsets.all(4),
-                                  margin: EdgeInsets.all(8),
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFFE1306C),
-                                    shape: BoxShape.circle,
+                                SizedBox(width: 30),
+                                InkWell(
+                                  onTap: (){
+                                    _launchURL(call);
+                                  },
+                                  child: Container(
+                                    height: 50,
+                                    width: 50,
+                                    padding: EdgeInsets.all(4),
+                                    margin: EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFE1306C),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Icon(FontAwesomeIcons.phone,color: Colors.white,size: 25,),
                                   ),
-                                  child: Icon(FontAwesomeIcons.phone,color: Colors.white,size: 25,),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ],
                       ),

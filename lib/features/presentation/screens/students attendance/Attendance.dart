@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:lecture_app/core/utils/app_strings.dart';
 
 class AttendanceList extends StatefulWidget {
@@ -104,7 +105,7 @@ class _AttendanceListState extends State<AttendanceList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Attendance List',style: TextStyle(fontSize: AppStrings.app_header),),
+        title: Text('Attendance List'.tr,style: TextStyle(fontSize: AppStrings.app_header),),
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(40.0),
           child: Padding(

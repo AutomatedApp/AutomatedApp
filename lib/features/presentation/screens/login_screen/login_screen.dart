@@ -46,8 +46,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Text(
                       'Log In'.tr,
                       style: TextStyle(
-                        fontSize: 20.0,
-                        fontFamily: AppStrings.constantFont,
+                        fontSize: AppStrings.app_header,
+                        fontFamily: AppStrings.primaryFont,
                         fontWeight: FontWeight.bold,
                         color: AppColors.primary,
                       ),
@@ -88,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Icons.email,
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(15),
                         borderSide: BorderSide(
                           color:AppColors.primary,
                           width: 1.0,
@@ -131,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(15),
                         borderSide: BorderSide(
                           color: AppColors.primary,
                           width: 1.0,
@@ -147,7 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.pushNamed(context,ResetPassword.ROUTE);
                         },
                         child: Text(
-                          'Forget Your Password?'.tr,
+                          'Forgot Your Password?'.tr,
                           style: TextStyle(
                             fontFamily: AppStrings.primaryFont,
                             fontWeight: FontWeight.bold,
@@ -165,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 50,
                     color: AppColors.primary,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10)),
                     onPressed: () async {
                       if (formKey.currentState!.validate()) {
                         try {
@@ -174,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         } on FirebaseAuthException catch (e) {
                           if (e.code == 'user-not-found') {
                             constants.SnacMessage(context, "user not found".tr);
-                            print('No user found for that email.');
+                            print('No user found for that email');
                           } else if (e.code == 'wrong-password') {
                             constants.SnacMessage(context, "wron password".tr);
                             print('Wrong password provided for that user.');
@@ -186,9 +186,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Text(
                       'Log In'.tr,
                       style: TextStyle(
-                          fontFamily: AppStrings.constantFont,
+                          fontFamily: AppStrings.primaryFont,
                           color: Colors.white,
-                          fontSize: 20,
+                          fontSize: 25,
                           fontWeight: FontWeight.bold),
                     ),
                   ),

@@ -56,22 +56,22 @@ class _HomePageState extends State<HomePage> {
                 child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CircleAvatar(radius: 40,
-                    backgroundImage:  FileImage( File(cashNetwork.getCashData(key: "image_profile"))),),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(name!=""?'${cashNetwork.getCashData(key: "name")}':"User", style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: AppStrings.primaryFont,
-                      color: Colors.grey,
-                    ),
-                    ),
+                    padding: const EdgeInsets.only(left: 15.0),
+                    child: CircleAvatar(radius: 50,
+                      backgroundImage:  FileImage( File(cashNetwork.getCashData(key: "image_profile"))),),
+                  ),
+                  Text(name!=""?'${cashNetwork.getCashData(key: "name")}':"User",style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: AppStrings.primaryFont,
+                    color: Colors.grey,
+                  ),
                   ),
                 ],
               ),
               ),
-              SizedBox(height: 15,),
+              SizedBox(height: 30,),
               SettingsTile(
                 color: AppColors.primary,
                 icon: Icons.person,
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(width: 30),
                   Text(
-                    lang?"English":"العربية",
+                    lang?"English":"اللغه العربية ",
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -129,56 +129,13 @@ class _HomePageState extends State<HomePage> {
               ),
               SettingsTile(
                 color: AppColors.primary,
-                icon: Icons.add_alert_sharp,
-                title: "Notification".tr,
-                onTap: ()=>Navigator.pushNamed(context,DataShow.ROUTE),
-              ),
-              Divider(
-                color: Colors.grey,
-                height: 30,
-                endIndent: 4,
-              ),
-              SettingsTile(
-                color: AppColors.primary,
-                icon: Icons.house_outlined,
-                title: "Home".tr,
-                onTap: ()=>Navigator.pushNamedAndRemoveUntil(context,NavHome.ROUTE,(route)=>false),
-              ),
-              Divider(
-                color: Colors.grey,
-                height: 30,
-                endIndent: 4,
-              ),
-              SettingsTile(
-                color: AppColors.primary,
-                icon: Icons.cloud_upload_outlined,
-                title: "Upload".tr,
-                onTap: ()=>Navigator.pushNamed(context,UploadFiles.ROUTE),
-              ),
-              Divider(
-                color: Colors.grey,
-                height: 30,
-                endIndent: 4,
-              ),
-              SettingsTile(
-                color: AppColors.primary,
-                icon: Icons.question_mark_sharp,
-                title: "About App".tr,
-                onTap: ()=>Navigator.pushNamed(context,AboutApp.ROUTE),
-              ),
-              Divider(
-                color: Colors.grey,
-                height: 30,
-                endIndent: 4,
-              ),
-              SettingsTile(
-                color: AppColors.primary,
                 icon:  Icons.settings,
                 title: 'Settings'.tr,
                 onTap: ()=>Navigator.pushNamed(context,SettingsScreen.ROUTE),
               ),
-              Padding(padding: EdgeInsets.only(top: 70)),
+              SizedBox(height: 50,),
               TextButton.icon(
+
                 icon: Icon(Icons.person,color: AppColors.primary,),
                 onPressed: (){
                   HomePage.logoutuser();
@@ -209,21 +166,65 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       body: Container(
-        child: Container(
-          child: Padding(
-            padding: const EdgeInsets.only(top:55,left: 25,right: 25),
-            child: GridView(
-              children: [
-                cards(context: context,pushNamed: RecordPage.ROUTE,text:'Record',icon_path:ImageAssets.video ),
-                cards(context: context,pushNamed: UploadFiles.ROUTE,text:'Upload',icon_path:ImageAssets.upload ),
-                cards(context: context,pushNamed: AttendanceList.ROUTE,text:'Attandance',icon_path: ImageAssets.immigration ),
-                cards(context: context,pushNamed: DataShow.ROUTE,text:'Projector',icon_path: ImageAssets.tablet ),
-                cards(context: context,pushNamed: notify.ROUTE,text:'Notify',icon_path: ImageAssets.notification ),
-                cards(context: context,pushNamed: QuizPage.ROUTE,text:'Quiz',icon_path:ImageAssets.quiz),
-              ],
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing:50,crossAxisSpacing: 25)
-              ,),
-          ),
+        child: Column(
+          children: [
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.only(top:55,left: 25,right: 25),
+                child: GridView(
+                  physics: NeverScrollableScrollPhysics(),
+                  children: [
+                    cards(context: context,pushNamed: DataShow.ROUTE,text:'Projector',icon_path: ImageAssets.tablet ),
+                    cards(context: context,pushNamed: UploadFiles.ROUTE,text:'Upload',icon_path:ImageAssets.upload ),
+                    cards(context: context,pushNamed: AttendanceList.ROUTE,text:'Attandance',icon_path: ImageAssets.immigration ),
+                    cards(context: context,pushNamed: QuizPage.ROUTE,text:'Quiz',icon_path:ImageAssets.quiz),
+                  ],
+                  shrinkWrap: true,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing:50,crossAxisSpacing: 25,)
+                  ,),
+              ),
+            ),
+            Container(
+              width: 220,
+              height: 220,
+              child: Padding(
+              padding: const EdgeInsets.only(top:50,left: 25,right: 25),
+                child: GestureDetector(
+                    onTap: ()=>Navigator.pushNamed(context,notify.ROUTE),
+                    child:   Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+
+                        color: AppColors.card,
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.homePage,
+                            spreadRadius: 7,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image(
+                            image:  AssetImage(ImageAssets.notification),
+                            height: 60,
+                          ),
+                          Text('Notify'.tr,
+                            style: TextStyle(fontSize: 20, fontFamily:AppStrings.primaryFont),
+                          ),
+
+                        ],
+                      ),
+                    ),
+                  )
+              ),
+            ),
+          ],
         ),),
     );
   }

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lecture_app/core/utils/app_colors.dart';
 import 'package:lecture_app/core/utils/app_strings.dart';
@@ -44,7 +45,7 @@ class _InformationScreenState extends State<InformationScreen> {
   }
 
   MyLectureScheduleImage() async {
-    var pickedImage = await imagepicker!.pickImage(source: ImageSource.gallery);
+    var pickedImage = await imagepicker!.pickImage(source: ImageSource.gallery,preferredCameraDevice: CameraDevice.rear);
     if (pickedImage != null) {
       setState(() {
         mylecturescheduleimage = File(pickedImage.path);
@@ -97,7 +98,7 @@ class _InformationScreenState extends State<InformationScreen> {
                 ),
               ),
               Text(
-                name!=""?'${cashNetwork.getCashData(key: "name")}':"User",
+                name!=""?'${cashNetwork.getCashData(key: "name")}':"User".tr,
                 style: TextStyle(
                   fontSize: 20,
                   fontFamily: AppStrings.primaryFont,
@@ -105,7 +106,7 @@ class _InformationScreenState extends State<InformationScreen> {
                 ),
               ),
               Text(
-                jop!=""?'${cashNetwork.getCashData(key: "jop")}':'Proffessor',
+                jop!=""?'${cashNetwork.getCashData(key: "jop")}':'Professor',
                 style: TextStyle(
                   fontSize: 20,
                   fontFamily: AppStrings.primaryFont,
@@ -119,7 +120,7 @@ class _InformationScreenState extends State<InformationScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'My Lecture Schedule',
+                    'My Lecture Schedule'.tr,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -159,7 +160,7 @@ class _InformationScreenState extends State<InformationScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Years Plan',
+                    'Years Plan'.tr,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -190,7 +191,7 @@ class _InformationScreenState extends State<InformationScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Calender',
+                    'Calender'.tr,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

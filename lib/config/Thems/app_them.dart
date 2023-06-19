@@ -8,7 +8,7 @@ ThemeData appthem(){
 return ThemeData(
     appBarTheme: AppBarTheme(
         backgroundColor:AppColors.primary,
-        titleTextStyle: TextStyle(fontFamily: AppStrings.primaryFont,fontSize: 25)
+        titleTextStyle: TextStyle(fontFamily: AppStrings.primaryFont,fontSize: AppStrings.app_header)
     )
 );
 }

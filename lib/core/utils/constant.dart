@@ -5,6 +5,7 @@ import 'package:lecture_app/core/utils/app_colors.dart';
 import 'package:lecture_app/core/utils/app_images.dart';
 
 class constants{
+  var formKey = GlobalKey<FormState>();
   static void ShowDialog({required BuildContext context,required String msg}){
     showDialog(context: context, builder: (context)=>
         AlertDialog(

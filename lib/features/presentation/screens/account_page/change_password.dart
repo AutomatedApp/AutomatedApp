@@ -4,6 +4,7 @@ import 'package:lecture_app/core/utils/app_colors.dart';
 import 'package:lecture_app/core/utils/app_images.dart';
 import 'package:lecture_app/core/utils/app_strings.dart';
 import 'package:lecture_app/core/utils/network/local_network.dart';
+import 'package:lecture_app/features/presentation/screens/login_screen/ResetPassword.dart';
 
 class ChangePassword extends StatefulWidget {
   static final ROUTE='ChangePass';
@@ -36,8 +37,6 @@ class _ChangePasswordState extends State<ChangePassword> {
           Text(
             'Change Password'.tr,
             style: TextStyle(
-              fontSize:AppStrings.app_header,
-              fontFamily: AppStrings.primaryFont,
               color: Colors.white,
             ),
           ),
@@ -217,7 +216,25 @@ class _ChangePasswordState extends State<ChangePassword> {
                     ),
                   ),
                 ),
-                SizedBox(height: 30,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context,ResetPassword.ROUTE);
+                      },
+                      child: Text(
+                        'Forgot Password?'.tr,
+                        style: TextStyle(
+                          fontFamily: AppStrings.primaryFont,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.primary,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10,),
                 MaterialButton(
                   shape: RoundedRectangleBorder(
                       borderRadius:

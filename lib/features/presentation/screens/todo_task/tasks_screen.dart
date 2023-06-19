@@ -42,7 +42,7 @@ class TaskScreen extends StatelessWidget {
         ),
         ],
       ),
-      backgroundColor: Colors.grey.withOpacity(0.2),
+      backgroundColor: Colors.white,
       body: Container(
         width:600,
         height: 600,
@@ -54,7 +54,7 @@ class TaskScreen extends StatelessWidget {
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.grey.withOpacity(0.2),
                   borderRadius: BorderRadius.all(
                     Radius.circular(20),
                   ),
@@ -68,7 +68,7 @@ class TaskScreen extends StatelessWidget {
               color: AppColors.primary,
               shape: RoundedRectangleBorder(
 
-                  borderRadius: BorderRadius.circular(20)
+                  borderRadius: BorderRadius.circular(10)
               ),
               onPressed: () {
                 showModalBottomSheet(

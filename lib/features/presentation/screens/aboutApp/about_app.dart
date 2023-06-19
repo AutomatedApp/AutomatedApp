@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:lecture_app/core/utils/app_colors.dart';
 import 'package:lecture_app/core/utils/app_strings.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -26,7 +27,7 @@ class _AboutAppState extends State<AboutApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('About App',
+        title: Text('About App'.tr,
           style: TextStyle(color: Colors.white,
               fontSize: AppStrings.app_header,
               fontFamily: AppStrings.primaryFont,
@@ -60,7 +61,8 @@ class _AboutAppState extends State<AboutApp> {
             ),
           ),
           SizedBox(height: 40,),
-          Text('Automated_Lecture_Hall',
+          Text('Automated Lecture Hall',
+
             style: TextStyle(
                 fontSize: 20,
                 fontFamily: AppStrings.primaryFont,
@@ -70,15 +72,16 @@ class _AboutAppState extends State<AboutApp> {
           ),
           SizedBox(height: 15,),
           Padding(
-            padding: const EdgeInsets.only(left:35,right:10),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Center(
               child: Text(
+                textAlign:TextAlign.center,
               'It is an application to improve and upgrade the quality of education and to make everything inside the lecture hall work automatically with just a few simple clicks and steps.',
                 style: TextStyle(
                     fontSize: 18,
                     fontFamily: AppStrings.primaryFont,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.primary
+                    color: Colors.grey
                 ),
               ),
             ),
@@ -123,14 +126,20 @@ class _AboutAppState extends State<AboutApp> {
             ],
           ),
           SizedBox(height: 20,),
-          Text('CopyRight © 2023 By Team Masterminds',
-            style: TextStyle(
-                fontSize: 18,
+          RichText(
+            text: TextSpan(
+              text: 'CopyRight',
+              style: TextStyle(color: Colors.grey,fontSize: 18,
                 fontFamily: AppStrings.constantFont,
-                fontWeight: FontWeight.bold,
-                color: AppColors.primary
+                fontWeight: FontWeight.bold,), /*defining default style is optional */
+              children: <TextSpan>[
+                TextSpan(
+                    text: ' © 2023 By Team Masterminds', style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey,fontSize: 18,
+                  fontFamily: AppStrings.constantFont,
+                )),
+              ],
             ),
-          )
+          ),
         ],
       ),
     );

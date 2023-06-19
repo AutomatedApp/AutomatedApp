@@ -25,12 +25,14 @@ class _AccountScreenState extends State<AccountScreen> {
    File? uploadimage;
    final imagepicker = ImagePicker();
    static String? path;
-  uploadImage() async {
-    var pickedImage = await imagepicker.pickImage(source: ImageSource.gallery);
+  Future uploadImage() async {
+    var pickedImage = await imagepicker.pickImage(source: ImageSource.gallery,preferredCameraDevice: CameraDevice.front);
     if(pickedImage != null){
       setState(() {
         uploadimage = File(pickedImage.path);
         path=pickedImage.path;
+        uploadimage = File(path!);
+        cashNetwork.insertToCash( key: "image_profile",value: path!);
       });
     }else{
 
@@ -100,71 +102,37 @@ class _AccountScreenState extends State<AccountScreen> {
                       height: 10,
                     ),
                     Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          CircleAvatar(
-                              radius: 70,
-                              backgroundImage:uploadimage != null ?FileImage(uploadimage!,):FileImage( File(cashNetwork.getCashData(key: "image_profile")))
-                      ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                MaterialButton(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                      BorderRadius.all(Radius.circular(20.0))),
-                                  elevation: 5.0,
-                                  height: 40,
-                                  onPressed:uploadImage,
-                                  child: Text(
-                                    "Upload".tr,
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20,
-                                        fontFamily: AppStrings.primaryFont,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  color: AppColors.primary,
-                                ),
-                                MaterialButton(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                      BorderRadius.all(Radius.circular(15.0))),
-                                  elevation: 5.0,
-                                  height: 40,
-                                  onPressed: (){
-                                    setState(() {
-                                      uploadimage = File(path!);
-                                      cashNetwork.insertToCash( key: "image_profile",value: path!);
-                                    });
-                                  },
-
-                                  child: Text(
-                                    "Save".tr,
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20,
-                                        fontFamily: AppStrings.primaryFont,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  color: AppColors.primary,
-                                ),
-                              ],
-                            ),
-                          ],
+                      child: Center(
+                        child: Column(
+                          children: [
+                            Stack(
+                               alignment: Alignment.bottomRight,
+                              children:[
+                                CircleAvatar(
+                                  radius: 70,
+                                  backgroundImage:uploadimage != null ?FileImage(uploadimage!,):FileImage( File(cashNetwork.getCashData(key: "image_profile")))
                         ),
+                                CircleAvatar(
+                                backgroundColor: Colors.white.withOpacity(.5),
+
+                                child: IconButton(  onPressed:uploadImage, icon: Icon(Icons.camera_alt,color: AppColors.primary,)),)
+                            ]),
+                            ],
+                          ),
+                      ),
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 10,
                     ),
-                    Text(
-                      'Name'.tr,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: AppStrings.primaryFont,
-                        color: Colors.black,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 4.0),
+                      child: Text(
+                        'Name'.tr,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: AppStrings.primaryFont,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -186,7 +154,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         controller:nameController,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),),
+                            borderRadius: BorderRadius.circular(15),),
                           suffix: Padding(
                             padding: const EdgeInsets.only(right: 8.0),
                             child: Text( 'Edit'.tr,
@@ -204,18 +172,23 @@ class _AccountScreenState extends State<AccountScreen> {
                           hintText: 'Dr.${cashNetwork.getCashData(key: "name")}',
                           hintStyle: TextStyle(
                             fontSize: 16,
-                            fontWeight: FontWeight.bold,
                             fontFamily: AppStrings.constantFont,
                           ),
                         ),
                       ),
                     ),
-                    Text(
-                      'Email'.tr,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: AppStrings.primaryFont,
-                        color: Colors.black,
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 4.0),
+                      child: Text(
+                        'Email'.tr,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: AppStrings.primaryFont,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -255,19 +228,24 @@ class _AccountScreenState extends State<AccountScreen> {
                           hintText: '${cashNetwork.getCashData(key: "email")}',
                           hintStyle: TextStyle(
                             fontSize: 16,
-                            fontWeight: FontWeight.bold,
                             fontFamily: AppStrings.constantFont,
                           ),
 
                         ),
                       ),
                     ),
-                    Text(
-                      'Proffessor'.tr,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: AppStrings.primaryFont,
-                        color: Colors.black,
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 4.0),
+                      child: Text(
+                        'Jop'.tr,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: AppStrings.primaryFont,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -305,7 +283,6 @@ class _AccountScreenState extends State<AccountScreen> {
                           hintText: '${cashNetwork.getCashData(key: "jop")}',
                           hintStyle: TextStyle(
                             fontSize: 16,
-                            fontWeight: FontWeight.bold,
                             fontFamily: AppStrings.constantFont,
                           ),
                           border: OutlineInputBorder(

@@ -67,105 +67,41 @@ List<Widget> item= [
                 ),
                 SettingsTile(
                   color: AppColors.primary,
-                  icon: Icons.person,
-                  title: "Account".tr,
-                  onTap: () {
-                    Navigator.pushNamed(context,InformationScreen.ROUTE);
-                  },
-                ),
-                 SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: AppColors.primary,
-                      ),
-                      child: Icon(
-                        Icons.language,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(width: 30),
-                    Text(
-                      "language",
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const Spacer(),
-                    GestureDetector(
-                      onTap: (){
-                        setState(() {
-                          lang = !lang;
-                          if (lang == false) {
-                            controller.changeLang("ar");
-
-                          }
-                          else {
-                            controller.changeLang("en");
-                          }
-                        });
-                      },
-                      child: ToggleSwitch(
-                        minWidth: 40.0,
-                        cornerRadius: 20.0,
-                        activeBgColors: [[  Colors.green!], [ Colors.green!]],
-                        activeFgColor: Colors.white,
-                        inactiveBgColor: Colors.grey,
-                        inactiveFgColor: Colors.white,
-                        initialLabelIndex: 1,
-                        totalSwitches: 2,
-                        labels: ['Ar', 'En'],
-                        radiusStyle: true,
-
-                        onToggle: (la) {
-                          print('switched to: $la');
-                        },
-
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                SettingsTile(
-                  color: AppColors.primary,
                   icon: Icons.add_alert_sharp,
-                  title: "Notification",
-                  onTap: ()=>Navigator.pushNamed(context,DataShow.ROUTE)
+                  title: "Notification".tr,
+                  onTap: ()=>Navigator.pushNamed(context,DataShow.ROUTE),
                 ),
-                 SizedBox(
-                  height: 20,
+                Divider(
+                  color: Colors.grey,
+                  height: 30,
+                  endIndent: 4,
                 ),
                 SettingsTile(
                   color: AppColors.primary,
                   icon: Icons.house_outlined,
-                  title: "Home",
-                  onTap: ()=>Navigator.pushNamed(context,NavHome.ROUTE),
+                  title: "Home".tr,
+                  onTap: ()=>Navigator.pushNamedAndRemoveUntil(context,NavHome.ROUTE,(route)=>false),
                 ),
-                 SizedBox(
-                  height: 20,
+                Divider(
+                  color: Colors.grey,
+                  height: 30,
+                  endIndent: 4,
                 ),
                 SettingsTile(
                   color: AppColors.primary,
                   icon: Icons.cloud_upload_outlined,
-                  title: "Upload",
+                  title: "Uploaded files".tr,
                   onTap: ()=>Navigator.pushNamed(context,UploadFiles.ROUTE),
                 ),
-                 SizedBox(
-                  height: 20,
+                Divider(
+                  color: Colors.grey,
+                  height: 30,
+                  endIndent: 4,
                 ),
                 SettingsTile(
                   color: AppColors.primary,
                   icon: Icons.question_mark_sharp,
-                  title: "About App",
+                  title: "About App".tr,
                   onTap: ()=>Navigator.pushNamed(context,AboutApp.ROUTE),
                 ),
               ],
