@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'menu2.dart';
-import 'navigation_controls2.dart';
-import 'web_view_stack2.dart';
+import 'navigation_controls3.dart';
+import 'web_view_stack3.dart';
 
 
-class Statistics extends StatefulWidget {
-  const Statistics({Key? key}) : super(key: key);
+class Uploadedfiles extends StatefulWidget {
+  static final ROUTE='Uploadedfiles';
+  const Uploadedfiles({Key? key}) : super(key: key);
 
   @override
-  State<Statistics> createState() => _StatisticsState();
+  State<Uploadedfiles> createState() => _Uploadedfiles();
 }
 
-class _StatisticsState extends State<Statistics> {
+class _Uploadedfiles extends State<Uploadedfiles> {
   late final WebViewController controller;
 
   @override
@@ -21,17 +21,16 @@ class _StatisticsState extends State<Statistics> {
     super.initState();
     controller = WebViewController()
       ..loadRequest(
-        Uri.parse('https://www.google.com/sheets/about/'),
+        Uri.parse('https://drive.google.com/'),
       );
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Statistics'.tr),
+        title: Text('Uploaded Files'.tr,style: TextStyle(fontSize: 20),),
         actions: [
           NavigationControls(controller: controller),
-          Menu(controller: controller),
         ],
       ),
       body: WebViewStack(controller: controller),

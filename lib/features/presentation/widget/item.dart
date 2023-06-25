@@ -46,7 +46,7 @@ Widget cards({
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(25),
 
-      color: AppColors.card,
+      color: AppColors.homePage,
       boxShadow: [
         BoxShadow(
           color: AppColors.homePage,

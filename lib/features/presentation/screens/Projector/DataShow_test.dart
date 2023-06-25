@@ -75,14 +75,18 @@ class _DataShowState extends State<DataShow> {
                       child: MaterialButton(
                         onPressed: () {
                           refdb.child("DataShow").child("flag").set(true).asStream();
-                          refdb.child("DataShow").child("logo").onValue.listen((event)async{
-                             var value = await event.snapshot.value;
-                             if(value=="found"){
-                               return constants.Dialog(context: context, msg: 'datashow is on', image: ImageAssets.logo);
-                             } if(value==" not found") {
-                               return constants.Dialog(context: context, msg: 'datashow is off', image: ImageAssets.logo);
-                             }
-                            // Display a message to the user here
+                          Future.delayed(Duration(seconds: 10), () async {
+
+                            refdb.child("DataShow").child('logofound').onValue.listen((event)async{
+                              var value = await event.snapshot.value;
+                              if(value==true){
+                                return constants.Dialog(context: context, msg: 'datashow is on', image: ImageAssets.logo);
+                              } if(value==false) {
+                                return constants.Dialog(context: context, msg: 'datashow is off', image: ImageAssets.logo);
+                              }
+                              // Display a message to the user here
+                            });
+
                           });
                         },
                         child: Text(

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:lecture_app/features/presentation/screens/UploadedFilles/UploadedFiles.dart';
 import 'package:lecture_app/features/presentation/screens/students%20attendance/Attendance.dart';
 import 'package:lecture_app/features/presentation/screens/Projector/DataShow_test.dart';
 import 'package:lecture_app/features/presentation/screens/HomePage.dart';
@@ -37,4 +38,5 @@ Map<String,WidgetBuilder> routes={
   QuizPage.ROUTE:(c)=>QuizPage(),
   RecordPage.ROUTE:(c)=>RecordPage(),
   record.ROUTE:(c)=>record(),
+  Uploadedfiles.ROUTE:(c)=>Uploadedfiles(),
 };

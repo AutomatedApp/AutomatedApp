@@ -36,9 +36,9 @@ class _NavHomeState extends State<NavHome> {
           child: CurvedNavigationBar(
               height: 50,
               index: currentTab,
-              backgroundColor: AppColors.primary,
-              color: AppColors.primary,
-              buttonBackgroundColor: Colors.white,
+              backgroundColor: AppColors.bottomnav,
+              color: AppColors.bottomnav,
+              buttonBackgroundColor: AppColors.primary,
               onTap:(index){
             setState(() {
               currentTab=index;
@@ -50,11 +50,15 @@ class _NavHomeState extends State<NavHome> {
 
                 Icon(
                   Icons.bar_chart,
+                  color: currentTab==0?Colors.white:Colors.black,
                 ),
                 Icon(
-                  Icons.home,),
+                  Icons.home,
+                  color: currentTab==1?Colors.white:Colors.black,
+                ),
                 Icon(
                   Icons.list_alt_outlined,
+                  color: currentTab==2?Colors.white:Colors.black,
                 ),
 
               ]),

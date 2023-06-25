@@ -47,7 +47,6 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
 
       drawer: Drawer(
-
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18),
           child: ListView(
@@ -127,13 +126,17 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.grey,
                 height: 30,
               ),
-              SettingsTile(
-                color: AppColors.primary,
-                icon:  Icons.settings,
-                title: 'Settings'.tr,
-                onTap: ()=>Navigator.pushNamed(context,SettingsScreen.ROUTE),
+              Column(
+                children: [
+                  SettingsTile(
+                    color: AppColors.primary,
+                    icon:  Icons.settings,
+                    title: 'Settings'.tr,
+                    onTap: ()=>Navigator.pushNamed(context,SettingsScreen.ROUTE),
+                  ),
+                ],
               ),
-              SizedBox(height: 50,),
+              SizedBox(height: 300,),
               TextButton.icon(
 
                 icon: Icon(Icons.person,color: AppColors.primary,),
@@ -195,7 +198,7 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
 
-                        color: AppColors.card,
+                        color: AppColors.homePage,
                         boxShadow: [
                           BoxShadow(
                             color: AppColors.homePage,

@@ -21,7 +21,7 @@ class _AccountScreenState extends State<AccountScreen> {
   var emailController = TextEditingController();
   var nameController = TextEditingController();
   var jopController = TextEditingController();
-  var email,jop,name;
+  var email,Role,name;
    File? uploadimage;
    final imagepicker = ImagePicker();
    static String? path;
@@ -66,7 +66,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     uploadimage = File(path!);
                     cashNetwork.insertToCash( key: "image_profile",value: path!);
                     cashNetwork.insertToCash( key: "name",value: name!);
-                    cashNetwork.insertToCash( key: "jop",value: jop!);
+                    cashNetwork.insertToCash( key: "Role",value: Role!);
                     cashNetwork.insertToCash( key: "email",value: email!);
                   });
                   Navigator.pop(
@@ -240,7 +240,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 4.0),
                       child: Text(
-                        'Jop'.tr,
+                        'Role'.tr,
                         style: TextStyle(
                           fontSize: 16,
                           fontFamily: AppStrings.primaryFont,
@@ -252,7 +252,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       width: double.infinity,
                       child: TextFormField(
                         onChanged: (data){
-                          jop=data;
+                          Role=data;
                         },
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -280,7 +280,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           enabled: true,
                           contentPadding: const EdgeInsets.only(
                               left: 14.0, bottom: 8.0, top: 8.0),
-                          hintText: '${cashNetwork.getCashData(key: "jop")}',
+                          hintText: '${cashNetwork.getCashData(key: "Role")}',
                           hintStyle: TextStyle(
                             fontSize: 16,
                             fontFamily: AppStrings.constantFont,

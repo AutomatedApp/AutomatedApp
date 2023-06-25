@@ -5,6 +5,7 @@ import 'package:lecture_app/core/utils/app_images.dart';
 import 'package:lecture_app/core/utils/app_strings.dart';
 import 'package:lecture_app/core/utils/local/local_controller.dart';
 import 'package:lecture_app/features/presentation/screens/Projector/DataShow_test.dart';
+import 'package:lecture_app/features/presentation/screens/UploadedFilles/UploadedFiles.dart';
 import 'package:lecture_app/features/presentation/screens/upload%20content/Upload_files.dart';
 import 'package:lecture_app/features/presentation/screens/aboutApp/about_app.dart';
 import 'package:lecture_app/features/presentation/screens/account_page/information_screen.dart';
@@ -67,17 +68,6 @@ List<Widget> item= [
                 ),
                 SettingsTile(
                   color: AppColors.primary,
-                  icon: Icons.add_alert_sharp,
-                  title: "Notification".tr,
-                  onTap: ()=>Navigator.pushNamed(context,DataShow.ROUTE),
-                ),
-                Divider(
-                  color: Colors.grey,
-                  height: 30,
-                  endIndent: 4,
-                ),
-                SettingsTile(
-                  color: AppColors.primary,
                   icon: Icons.house_outlined,
                   title: "Home".tr,
                   onTap: ()=>Navigator.pushNamedAndRemoveUntil(context,NavHome.ROUTE,(route)=>false),
@@ -91,7 +81,18 @@ List<Widget> item= [
                   color: AppColors.primary,
                   icon: Icons.cloud_upload_outlined,
                   title: "Uploaded files".tr,
-                  onTap: ()=>Navigator.pushNamed(context,UploadFiles.ROUTE),
+                  onTap: ()=>Navigator.pushNamed(context,Uploadedfiles.ROUTE),
+                ),
+                Divider(
+                  color: Colors.grey,
+                  height: 30,
+                  endIndent: 4,
+                ),
+                SettingsTile(
+                  color: AppColors.primary,
+                  icon: Icons.add_alert_sharp,
+                  title: "Notification".tr,
+                  onTap: ()=>Navigator.pushNamed(context,DataShow.ROUTE),
                 ),
                 Divider(
                   color: Colors.grey,

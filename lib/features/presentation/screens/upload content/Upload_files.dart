@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:googleapis/drive/v3.dart' as drive;
@@ -26,6 +25,9 @@ class UploadFiles extends StatefulWidget {
 class _UploadFiles extends State<UploadFiles> {
   PlatformFile? PickedFile;
   UploadTask? uploadtask;
+  var folderName;
+  var formKey = GlobalKey<FormState>();
+  var namecontroller = TextEditingController();
   Future selectFile() async {
     final resul = await FilePicker.platform.pickFiles(allowMultiple: true);
     if (resul == null) return;
@@ -44,27 +46,95 @@ class _UploadFiles extends State<UploadFiles> {
     signIn.GoogleSignIn.standard(scopes: [drive.DriveApi.driveScope]);
      signIn.GoogleSignInAccount? account = await googleSignIn.signIn();
     print("User account $account");
-    final path = 'files/${PickedFile!.name}';
-    final File file = File(PickedFile!.path!);
+    //final path = 'files/${PickedFile!.name}';
+    // ignore: use_build_context_synchronously
+    showDialog(context: context, builder: (context)=>
+        Form(
+          key: formKey,
+          child: AlertDialog(
+            actions: [
+              TextFormField(
 
+                onChanged: (data){
+                  folderName=data.trim();
+                },
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'name must not be empty'.tr;
+                  }
 
-    final authHeaders = await account?.authHeaders;
-    final authenticateClient = GoogleAuthClient(authHeaders!);
-    final driveApi = drive.DriveApi(authenticateClient);
+                  return null;
+                },
+                keyboardType: TextInputType.name,
+                controller: namecontroller,
+                decoration: InputDecoration(
+                  labelText: 'name'.tr,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: BorderSide(
+                      color: AppColors.primary,
+                      width: 1.0,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextButton(onPressed: (){ Navigator.pop(
+                    context,
+                  );}, child: Text('Cansel',style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.black,
+                  ),)),
+                  TextButton(onPressed: ()async{
+                    Navigator.pop(
+                      context,
+                    );
+                    var folderId;
+                    final File file = File(PickedFile!.path!);
+                    final authHeaders = await account?.authHeaders;
+                    final authenticateClient = GoogleAuthClient(authHeaders!);
+                    final driveApi = drive.DriveApi(authenticateClient);
 
+                    drive.FileList folderList = await driveApi.files.list(q: "mimeType='application/vnd.google-apps.folder' and name='$folderName'");
+                    if (folderList.files != null && folderList.files!.isNotEmpty) {
+                      // Assuming there is only one folder with the given name, retrieve its ID
+                      folderId = folderList.files![0].id!;
+                    } else {
+                      // Folder with the given name not found
+                      print("Folder not found.");
+                      return;
+                    }
+                    Future.delayed(Duration(seconds: 10), () async{
+                      var media = new drive.Media(file.openRead(), file.lengthSync());
+                      var driveFile = new drive.File();
+                      driveFile.parents = ['${folderId}'];
+                      driveFile.name = "${PickedFile!.name}";
+                       await driveApi.files.create(driveFile, uploadMedia: media,
+                          uploadOptions: drive.UploadOptions(),
+                          supportsAllDrives: true).then((value) async {
+                        await file.delete();
+                        constants.Dialog(context: context,msg: PickedFile!.name+" Uploaded Successfully",image: ImageAssets.success);
+                      });
+                      await googleSignIn.signOut();
 
-    var media = new drive.Media(file.openRead(), file.lengthSync());
-    var driveFile = new drive.File();
-   // driveFile.parents = ["1NxIlrbN_5J-xBspiAJENqntQ7s4HpufH"];
-    driveFile.name = "${PickedFile!.name}";
-    final result = await driveApi.files.create(driveFile, uploadMedia: media,
-        uploadOptions: drive.UploadOptions(),
-        supportsAllDrives: true).then((value) async {
-      await file.delete();
-      constants.Dialog(context: context,msg: PickedFile!.name+" Uploaded Successfully",image: ImageAssets.success);
-    });
-    print("Upload result: $result");
-    account = await googleSignIn.signOut();
+                    });
+
+                  }, child: Text('Ok',style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.black,
+                  ),))
+                ],)
+            ],
+            backgroundColor: AppColors.homePage,
+            title: Text('put the name of folder that can upload your files inside it'),
+            icon: Icon(Icons.file_copy,size: 40),
+          ),
+        ));
+// Search for the folder by name
+    
   }
 
   void SnacMessage() {
@@ -81,8 +151,7 @@ class _UploadFiles extends State<UploadFiles> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Row(
 

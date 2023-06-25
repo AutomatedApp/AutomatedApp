@@ -1,12 +1,13 @@
 import 'dart:io';
+import 'package:flutter_clean_calendar/flutter_clean_calendar.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
-import 'package:get/get_utils/get_utils.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lecture_app/core/utils/app_colors.dart';
 import 'package:lecture_app/core/utils/app_strings.dart';
 import 'package:lecture_app/features/presentation/screens/account_page/profile_screen.dart';
-import 'package:lecture_app/features/presentation/screens/settings_page/setting_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:lecture_app/core/utils/network/local_network.dart';
@@ -21,17 +22,11 @@ class InformationScreen extends StatefulWidget {
 
 class _InformationScreenState extends State<InformationScreen> {
   var name=cashNetwork.getCashData(key: "name");
-  var jop=cashNetwork.getCashData(key: "jop");
+  var Role=cashNetwork.getCashData(key: "Role");
   DateTime date = DateTime.now();
   File? yearsplanimage;
   File? mylecturescheduleimage;
   String? _imagepath;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    LoadImage();
-  }
 
   final imagepicker = ImagePicker();
 
@@ -45,7 +40,7 @@ class _InformationScreenState extends State<InformationScreen> {
   }
 
   MyLectureScheduleImage() async {
-    var pickedImage = await imagepicker!.pickImage(source: ImageSource.gallery,preferredCameraDevice: CameraDevice.rear);
+    var pickedImage = await imagepicker!.pickImage(source: ImageSource.gallery);
     if (pickedImage != null) {
       setState(() {
         mylecturescheduleimage = File(pickedImage.path);
@@ -53,6 +48,58 @@ class _InformationScreenState extends State<InformationScreen> {
     } else {}
   }
 
+  // Calender
+    DateTime? selectedDay;
+    late List <CleanCalendarEvent> selectedEvent;
+
+  final Map<DateTime,List<CleanCalendarEvent>> events = {
+
+    DateTime (DateTime.now().year,DateTime.now().month,DateTime.now().day):
+    [
+      CleanCalendarEvent('Event A',
+          startTime: DateTime(
+              DateTime.now().year,DateTime.now().month,DateTime.now().day,10,0),
+          endTime:  DateTime(
+              DateTime.now().year,DateTime.now().month,DateTime.now().day,12,0),
+          description: 'A special event',
+          color: Colors.blue),
+    ],
+
+    DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 2):
+    [
+      CleanCalendarEvent('Event B',
+          startTime: DateTime(DateTime.now().year, DateTime.now().month,
+              DateTime.now().day + 2, 10, 0),
+          endTime: DateTime(DateTime.now().year, DateTime.now().month,
+              DateTime.now().day + 2, 12, 0),
+          color: Colors.orange),
+      CleanCalendarEvent('Event C',
+          startTime: DateTime(DateTime.now().year, DateTime.now().month,
+              DateTime.now().day + 2, 14, 30),
+          endTime: DateTime(DateTime.now().year, DateTime.now().month,
+              DateTime.now().day + 2, 17, 0),
+          color: Colors.pink),
+    ],
+  };
+
+  void _handleData(date){
+    setState(() {
+      selectedDay = date;
+      selectedEvent = events[selectedDay] ?? [];
+    });
+    print(selectedDay);
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    LoadImage();
+    selectedEvent = events[selectedDay] ?? [];
+    super.initState();
+  }
+  DateTimeRange selectedDates = DateTimeRange(
+    start: DateTime.now(),
+    end: DateTime.now(),
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,7 +120,7 @@ class _InformationScreenState extends State<InformationScreen> {
         actions: [
           IconButton(
             icon: Icon(
-              Icons.edit,
+              Icons.perm_contact_calendar_outlined,
               color: Colors.white,
             ),
             onPressed: () {
@@ -98,7 +145,7 @@ class _InformationScreenState extends State<InformationScreen> {
                 ),
               ),
               Text(
-                name!=""?'${cashNetwork.getCashData(key: "name")}':"User".tr,
+                name!=""?'${cashNetwork.getCashData(key: "name")}':"User",
                 style: TextStyle(
                   fontSize: 20,
                   fontFamily: AppStrings.primaryFont,
@@ -106,7 +153,7 @@ class _InformationScreenState extends State<InformationScreen> {
                 ),
               ),
               Text(
-                jop!=""?'${cashNetwork.getCashData(key: "jop")}':'Professor',
+                Role!=""?'${cashNetwork.getCashData(key: "jop")}':'Proffessor',
                 style: TextStyle(
                   fontSize: 20,
                   fontFamily: AppStrings.primaryFont,
@@ -120,7 +167,7 @@ class _InformationScreenState extends State<InformationScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'My Lecture Schedule'.tr,
+                    'My Lecture Schedule',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -135,15 +182,7 @@ class _InformationScreenState extends State<InformationScreen> {
                     ),
                     onPressed: MyLectureScheduleImage,
                   ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.save,
-                      color: AppColors.primary,
-                    ),
-                    onPressed: (){
-                      Saveimage(_imagepath);
-                      },
-                  ),
+
                 ],
               ),
               SizedBox(
@@ -160,7 +199,7 @@ class _InformationScreenState extends State<InformationScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Years Plan'.tr,
+                    'Years Plan',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -191,7 +230,7 @@ class _InformationScreenState extends State<InformationScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Calender'.tr,
+                    'Calender',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -205,59 +244,119 @@ class _InformationScreenState extends State<InformationScreen> {
                       color: AppColors.primary,
                     ),
                     onPressed: () async {
-                      DateTime? newDate = await showDatePicker(
-                        context: context,
-                        initialDate: date,
-                        firstDate: DateTime(1900),
-                        lastDate: DateTime(2100),
-                      );
-                      if (newDate == null) return;
-                      setState(() {
-                        date = newDate;
-                      });
+                      final DateTimeRange? dateTimeRange = await showDateRangePicker(
+                          context: context,
+                          firstDate: DateTime(1600),
+                          lastDate: DateTime(2100));
+                      if (dateTimeRange != null ){
+                        setState(() {
+                          selectedDates = dateTimeRange;
+                        });
+                      }
                     },
                   ),
+
                 ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Date Of Event :",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: AppStrings.primaryFont,
+                      color: AppColors.primary,
+                    ),
+                  ),
+                  SizedBox(width: 10,),
+                  Text(
+                      "${selectedDates.duration.inDays}",
+                    style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: AppStrings.primaryFont,
+                    color: AppColors.primary,
+                  ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 400,
+                  // color: AppColors.primary,
+                  child: Calendar(
+
+                    startOnMonday: true,
+                    selectedColor: AppColors.primary,
+                    todayColor: AppColors.primary,
+                    eventColor: AppColors.primary,
+                    eventDoneColor: AppColors.primary,
+                    bottomBarColor: AppColors.primary,
+                    onRangeSelected: (range) {
+                      print('selected Day ${range.from},${range.to}');
+                    },
+                    onDateSelected: (date){
+                      return _handleData(date);
+                    },
+                    events: events,
+                    isExpanded: true,
+                    dayOfWeekStyle: TextStyle(
+                      fontSize: 15,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    bottomBarTextStyle: TextStyle(
+                      color: AppColors.primary,
+                    ),
+                    hideBottomBar: false,
+                    hideArrows: false,
+                    weekDays: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+                  ),
+                ),
               ),
               SizedBox(
                 height: 10,
               ),
-              Text(
-                'Date Of Day :  ${date.day}/${date.month}/${date.year}',
-                style: TextStyle(
-                    color: AppColors.primary,
-                    fontSize: 20,
-                    fontFamily: AppStrings.primaryFont),
-              ),
-              Container(
-                padding: EdgeInsets.all(20),
-                width: 330,
-                child: SingleChildScrollView(
-                  child: TableCalendar(
-                    firstDay: DateTime.utc(1900, 10, 20),
-                    lastDay: DateTime.utc(2100, 10, 20),
-                    focusedDay: DateTime.now(),
-                    headerVisible: true,
-                    daysOfWeekVisible: true,
-                    sixWeekMonthsEnforced: true,
-                    shouldFillViewport: false,
-                    headerStyle: HeaderStyle(
-                        titleTextStyle: TextStyle(
-                            fontSize: 16,
-                            color: AppColors.primary,
-                            fontWeight: FontWeight.bold)),
-                    calendarStyle: CalendarStyle(
-                      defaultDecoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      todayTextStyle: TextStyle(
-                          fontSize: 16,
-                          color: AppColors.primary,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-              ),
+              // Text(
+              //   'Date Of Day :  ${date.day}/${date.month}/${date.year}',
+              //   style: TextStyle(
+              //       color: AppColors.primary,
+              //       fontSize: 20,
+              //       fontFamily: AppStrings.primaryFont),
+              // ),
+              // Container(
+              //   padding: EdgeInsets.all(20),
+              //   width: 330,
+              //   child: SingleChildScrollView(
+              //     child: TableCalendar(
+              //       firstDay: DateTime.utc(1900, 10, 20),
+              //       lastDay: DateTime.utc(2100, 10, 20),
+              //       focusedDay: DateTime.now(),
+              //       headerVisible: true,
+              //       daysOfWeekVisible: true,
+              //       sixWeekMonthsEnforced: true,
+              //       shouldFillViewport: false,
+              //       headerStyle: HeaderStyle(
+              //           titleTextStyle: TextStyle(
+              //               fontSize: 16,
+              //               color: Colors.black,
+              //               fontWeight: FontWeight.bold)),
+              //       calendarStyle: CalendarStyle(
+              //         defaultDecoration: BoxDecoration(
+              //           borderRadius: BorderRadius.circular(20),
+              //         ),
+              //         todayTextStyle: TextStyle(
+              //             fontSize: 16,
+              //             color: Colors.black,
+              //             fontWeight: FontWeight.bold),
+              //       ),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
