@@ -88,8 +88,9 @@ class _DataShowState extends State<DataShow> {
                                     image: ImageAssets.logo);
                               } if(value==false) {
                                 return constants.Dialog(context: context, Text:   Column(children: [
+                                  Text('Error!',style: TextStyle(color: Colors.red,fontSize: 18,fontWeight: FontWeight.bold),),
                                   Text('Projector is not  working',style: TextStyle(fontSize: 21,fontFamily: AppStrings.primaryFont)),
-                                  Text('Error!',style: TextStyle(color: Colors.red,fontSize: 18,fontWeight: FontWeight.bold),)
+
                                 ],), image: ImageAssets.logo);
                               }
                               // Display a message to the user here
