@@ -16,15 +16,15 @@ class constants{
           icon: Icon(Icons.gpp_good,size: 40),
         ));
   }
-  static void Dialog({required BuildContext context,required String msg,required String image,Function? onpressed}){
+  static void Dialog({required BuildContext context,required var Text,required String image,Function? onpressed}){
     showDialog(context: context, builder: (context)=>
         AlertDialog(
-          backgroundColor: AppColors.Dialog,
+          backgroundColor: Colors.white.withOpacity(.8),
           shape:Border.symmetric() ,
           actions: [
             Center(child: Image(image:AssetImage( image),fit: BoxFit.cover,height: 140,)),
             SizedBox(height: 10,),
-            Center(child: Text(msg,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)),
+            Center(child: Text),
           ],
 
         ));

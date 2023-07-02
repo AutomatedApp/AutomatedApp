@@ -12,6 +12,7 @@ class ImageAssets{
  static String immigration='$icpath/immigration.png';
  static String startRecord='$icpath/Group 59.png';
  static String upperRecord='$icpath/upperRecord.png';
+ static String files='$icpath/files.jpg';
  static String RecordPage='$impath/Webinar-pana.png';
  static String RecordinIcon='$impath/RecordingIcon.png';
  static String OSupgrade='$impath/OSupgrade.png';

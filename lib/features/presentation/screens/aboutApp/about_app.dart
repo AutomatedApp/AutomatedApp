@@ -134,6 +134,7 @@ class _AboutAppState extends State<AboutApp> {
                 fontWeight: FontWeight.bold,), /*defining default style is optional */
               children: <TextSpan>[
                 TextSpan(
+
                     text: ' © 2023 By Team Masterminds', style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey,fontSize: 18,
                   fontFamily: AppStrings.constantFont,
                 )),

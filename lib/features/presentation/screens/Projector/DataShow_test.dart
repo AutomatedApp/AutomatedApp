@@ -80,9 +80,17 @@ class _DataShowState extends State<DataShow> {
                             refdb.child("DataShow").child('logofound').onValue.listen((event)async{
                               var value = await event.snapshot.value;
                               if(value==true){
-                                return constants.Dialog(context: context, msg: 'datashow is on', image: ImageAssets.logo);
+                                return constants.Dialog(context: context, Text:
+                                Column(children: [
+                                  Text('Projector is working',style: TextStyle(fontSize: 21,fontFamily: AppStrings.primaryFont)),
+                                  Text('Successfully',style: TextStyle(color: Colors.green,fontSize: 18,fontWeight: FontWeight.bold),)
+                                ],),
+                                    image: ImageAssets.logo);
                               } if(value==false) {
-                                return constants.Dialog(context: context, msg: 'datashow is off', image: ImageAssets.logo);
+                                return constants.Dialog(context: context, Text:   Column(children: [
+                                  Text('Projector is not  working',style: TextStyle(fontSize: 21,fontFamily: AppStrings.primaryFont)),
+                                  Text('Error!',style: TextStyle(color: Colors.red,fontSize: 18,fontWeight: FontWeight.bold),)
+                                ],), image: ImageAssets.logo);
                               }
                               // Display a message to the user here
                             });
