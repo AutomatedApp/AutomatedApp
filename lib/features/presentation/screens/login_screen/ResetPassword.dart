@@ -26,7 +26,7 @@ class _ResetPasswordState extends State<ResetPassword> {
         title: Row(
             children: [
           Text(
-            'Reset Password'.tr,
+            'Reset password'.tr,
           ),
         ]),
         backgroundColor: AppColors.primary,
@@ -74,7 +74,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Enter Your Email'.tr,
+                              'Enter your email'.tr,
                               style: TextStyle(
                                 fontSize: 18.0,
                                 fontFamily: AppStrings.constantFont,

@@ -35,7 +35,7 @@ class _ChangePasswordState extends State<ChangePassword> {
       appBar: AppBar(
         title: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
           Text(
-            'Change Password'.tr,
+            'Change password'.tr,
             style: TextStyle(
               color: Colors.white,
             ),
@@ -95,7 +95,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: password1,
                   decoration: InputDecoration(
-                    labelText: 'Current Password'.tr,
+                    labelText: 'Current password'.tr,
                     enabled: true,
                     contentPadding: const EdgeInsets.only(
                         left: 14.0, bottom: 8.0, top: 8.0),
@@ -140,7 +140,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: password2,
                   decoration: InputDecoration(
-                    labelText: 'New Password'.tr,
+                    labelText: 'New password'.tr,
                     enabled: true,
                     contentPadding: const EdgeInsets.only(
                         left: 14.0, bottom: 8.0, top: 8.0),
@@ -188,7 +188,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: password3,
                   decoration: InputDecoration(
-                    labelText: 'Confirm Password'.tr,
+                    labelText: 'Confirm password'.tr,
                     enabled: true,
                     contentPadding: const EdgeInsets.only(
                         left: 14.0, bottom: 8.0, top: 8.0),
@@ -224,7 +224,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                         Navigator.pushNamed(context,ResetPassword.ROUTE);
                       },
                       child: Text(
-                        'Forgot Password?'.tr,
+                        'Forgot password ?'.tr,
                         style: TextStyle(
                           fontFamily: AppStrings.primaryFont,
                           fontWeight: FontWeight.bold,
@@ -251,7 +251,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                     CircularProgressIndicator();
                   },
                   child: Text(
-                    "Change Password".tr,
+                    "Change password".tr,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

@@ -28,7 +28,7 @@ class _Uploadedfiles extends State<Uploadedfiles> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Uploaded Files'.tr,style: TextStyle(fontSize: 20),),
+        title: Text('Uploaded files'.tr,style: TextStyle(fontSize: 20),),
         actions: [
           NavigationControls(controller: controller),
         ],

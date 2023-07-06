@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lecture_app/core/utils/app_colors.dart';
 import 'package:lecture_app/core/utils/app_strings.dart';
@@ -167,7 +168,7 @@ class _InformationScreenState extends State<InformationScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'My Lecture Schedule',
+                    'My Lecture Schedule'.tr,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -199,7 +200,7 @@ class _InformationScreenState extends State<InformationScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Years Plan',
+                    'Years Plan'.tr,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -230,7 +231,7 @@ class _InformationScreenState extends State<InformationScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Calender',
+                    'Calender'.tr,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -262,7 +263,7 @@ class _InformationScreenState extends State<InformationScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Date Of Event :",
+                    "Date Of Event :".tr,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

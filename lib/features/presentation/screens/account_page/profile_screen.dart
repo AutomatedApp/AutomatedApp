@@ -301,7 +301,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         Navigator.pushNamed(context,ChangePassword.ROUTE);
                       },
                       child: Text(
-                        "Change Password".tr,
+                        "Change password".tr,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,

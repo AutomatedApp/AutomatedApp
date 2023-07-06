@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      'Log In'.tr,
+                      'Log in'.tr,
                       style: TextStyle(
                         fontSize: AppStrings.app_header,
                         fontFamily: AppStrings.primaryFont,
@@ -83,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: emailController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
-                      labelText: 'Enter Your Email'.tr,
+                      labelText: 'Enter your email'.tr,
                       prefixIcon: Icon(
                         Icons.email,
                       ),
@@ -147,7 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.pushNamed(context,ResetPassword.ROUTE);
                         },
                         child: Text(
-                          'Forgot Your Password?'.tr,
+                          'Forgot your password?'.tr,
                           style: TextStyle(
                             fontFamily: AppStrings.primaryFont,
                             fontWeight: FontWeight.bold,
@@ -173,10 +173,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.pushReplacementNamed(context,NavHome.ROUTE);
                         } on FirebaseAuthException catch (e) {
                           if (e.code == 'user-not-found') {
-                            constants.SnacMessage(context, "user not found".tr);
+                            constants.SnacMessage(context, "User not found".tr);
                             print('No user found for that email');
                           } else if (e.code == 'wrong-password') {
-                            constants.SnacMessage(context, "wron password".tr);
+                            constants.SnacMessage(context, "Wrong password".tr);
                             print('Wrong password provided for that user.');
                           }
                         }
@@ -184,7 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       }
                     },
                     child: Text(
-                      'Log In'.tr,
+                      'Log in'.tr,
                       style: TextStyle(
                           fontFamily: AppStrings.primaryFont,
                           color: Colors.white,

@@ -145,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.pushNamedAndRemoveUntil(context,SplshScreen.ROUTE,(route)=>false);
                 },
                 label: Text(
-                  "LogOut".tr,
+                  "Log out".tr,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -179,7 +179,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     cards(context: context,pushNamed: DataShow.ROUTE,text:'Projector',icon_path: ImageAssets.tablet ),
                     cards(context: context,pushNamed: UploadFiles.ROUTE,text:'Upload',icon_path:ImageAssets.upload ),
-                    cards(context: context,pushNamed: AttendanceList.ROUTE,text:'Attandance',icon_path: ImageAssets.immigration ),
+                    cards(context: context,pushNamed: AttendanceList.ROUTE,text:'Attendance',icon_path: ImageAssets.immigration ),
                     cards(context: context,pushNamed: QuizPage.ROUTE,text:'Quiz',icon_path:ImageAssets.quiz),
                   ],
                   shrinkWrap: true,

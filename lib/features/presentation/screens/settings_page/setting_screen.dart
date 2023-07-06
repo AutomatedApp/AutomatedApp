@@ -92,7 +92,7 @@ List<Widget> item= [
                   color: AppColors.primary,
                   icon: Icons.add_alert_sharp,
                   title: "Notification".tr,
-                  onTap: ()=>Navigator.pushNamed(context,DataShow.ROUTE),
+                  onTap: (){},
                 ),
                 Divider(
                   color: Colors.grey,
